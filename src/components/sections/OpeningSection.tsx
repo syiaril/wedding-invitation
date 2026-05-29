@@ -70,7 +70,7 @@ export default function OpeningSection() {
                 className="text-3xl text-sage-800 mb-2"
                 style={{ fontFamily: 'Great Vibes, cursive' }}
               >
-                Muhammad Asmunandar, S.Ak
+                M. Asmunandar, S.Ak
               </h3>
               <p className="text-sage-600 text-sm font-serif mb-1">
                 Putra dari
