@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 const OG_IMAGE_URL = "https://phzbfeoxgwqfmulacpzn.supabase.co/storage/v1/object/public/wedding-assets/images/og-cover.jpg";
+const FAVICON_URL = "https://phzbfeoxgwqfmulacpzn.supabase.co/storage/v1/object/public/wedding-assets/images/favicon.ico";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://wedding.mhmdsyiaril.my.id"),
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
     images: [OG_IMAGE_URL],
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: FAVICON_URL,
   },
 };
 
