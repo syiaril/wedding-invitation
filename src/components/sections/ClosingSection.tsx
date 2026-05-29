@@ -96,9 +96,20 @@ export default function ClosingSection() {
 
         {/* Copyright */}
         <div className="mt-16 pt-6 border-t border-white/10">
-          <p className="text-white/30 text-[10px] tracking-wider">
-            © 2026 Nandar & Salsa. Made with ❤️
-          </p>
+          <div className="text-white/30 text-[10px] tracking-wider flex flex-col items-center gap-1">
+            <p>© 2026 Nandar & Salsa.</p>
+            <p>
+              Created by{' '}
+              <a 
+                href="https://mhmdsyiaril.my.id" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-white/50 hover:text-white transition-colors font-medium hover:underline"
+              >
+                Muhamad Syiaril Islami
+              </a>
+            </p>
+          </div>
         </div>
       </div>
     </section>
