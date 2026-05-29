@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
+const OG_IMAGE_URL = "https://phzbfeoxgwqfmulacpzn.supabase.co/storage/v1/object/public/wedding-assets/images/og-cover.jpg";
+
 export const metadata: Metadata = {
+  metadataBase: new URL("https://wedding.mhmdsyiaril.my.id"),
   title: "The Wedding of Nandar & Salsa | 18 Oktober 2026",
   description:
     "Kami mengundang Anda untuk merayakan momen bahagia pernikahan Nandar & Salsa. 18 Oktober 2026.",
@@ -10,7 +13,7 @@ export const metadata: Metadata = {
     description:
       "Kami mengundang Anda untuk merayakan momen bahagia pernikahan Nandar & Salsa.",
     type: "website",
-    images: ["/images/og-cover.jpg"],
+    images: [OG_IMAGE_URL],
   },
   icons: {
     icon: "/favicon.ico",
