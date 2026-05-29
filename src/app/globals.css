@@ -1,26 +1,219 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Great+Vibes&family=Lato:wght@300;400;700&display=swap');
+
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
+/* ===== Tailwind v4 Theme ===== */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Colors - Sage Green */
+  --color-sage-50: #F5F7F3;
+  --color-sage-100: #E8EDE4;
+  --color-sage-200: #C5D1BC;
+  --color-sage-300: #A8B89C;
+  --color-sage-400: #96A889;
+  --color-sage-500: #8B9E81;
+  --color-sage-600: #6B7F62;
+  --color-sage-700: #5A6E50;
+  --color-sage-800: #3F4E38;
+  --color-sage-900: #2A3525;
+
+  /* Colors - Dusty Pink */
+  --color-dusty-50: #FDF5F5;
+  --color-dusty-100: #F8E8E8;
+  --color-dusty-200: #E8C4C4;
+  --color-dusty-300: #D4A5A5;
+  --color-dusty-400: #C48E8E;
+  --color-dusty-500: #B07878;
+
+  /* Colors - Gold */
+  --color-gold-300: #E8C97A;
+  --color-gold-400: #D4A843;
+  --color-gold-500: #B8860B;
+  --color-gold-600: #956B09;
+
+  /* Colors - Earth */
+  --color-earth-50: #FAF7F2;
+  --color-earth-100: #F5EDE0;
+  --color-earth-200: #E8DCC8;
+  --color-earth-300: #DDD0B8;
+  --color-earth-400: #C9B99A;
+  --color-earth-500: #A89A7B;
+
+  /* Fonts */
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-script: 'Great Vibes', cursive;
+  --font-sans: 'Lato', -apple-system, sans-serif;
+
+  /* Animations */
+  --animate-fade-in-up: fade-in-up 0.8s ease-out forwards;
+  --animate-fade-in-down: fade-in-down 0.8s ease-out forwards;
+  --animate-scale-in: scale-in 0.6s ease-out forwards;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-soft: pulse-soft 2s ease-in-out infinite;
+  --animate-spin-slow: spin-slow 8s linear infinite;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ===== Keyframes ===== */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
+@keyframes fade-in-down {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ===== Base Styles ===== */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  background: var(--color-earth-50);
+  color: #3A3A3A;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ===== Custom Scrollbar ===== */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-sage-50);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-sage-300);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-sage-500);
+}
+
+/* ===== Typography ===== */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+}
+
+/* ===== Decorative Ornament ===== */
+.ornament-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 2rem 0;
+}
+
+.ornament-divider::before,
+.ornament-divider::after {
+  content: '';
+  height: 1px;
+  width: 60px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--color-gold-400),
+    transparent
+  );
+}
+
+/* ===== Floral Corner Decorations ===== */
+.floral-corner {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.floral-corner--tl {
+  top: 0;
+  left: 0;
+}
+
+.floral-corner--tr {
+  top: 0;
+  right: 0;
+  transform: scaleX(-1);
+}
+
+.floral-corner--bl {
+  bottom: 0;
+  left: 0;
+  transform: scaleY(-1);
+}
+
+.floral-corner--br {
+  bottom: 0;
+  right: 0;
+  transform: scale(-1, -1);
+}
+
+/* ===== Glass Card ===== */
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+}
+
+/* ===== Swiper Custom Styles ===== */
+.swiper-pagination-bullet {
+  background: var(--color-sage-400) !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--color-sage-700) !important;
+}
+
+/* ===== Selection ===== */
+::selection {
+  background: var(--color-dusty-200);
+  color: var(--color-sage-800);
 }
