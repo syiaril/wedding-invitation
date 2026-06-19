@@ -7,7 +7,7 @@ import { useCountdown } from '@/hooks/useCountdown';
 import AnimatedSection from '@/components/ui/AnimatedSection';
 import { HERO_BG } from '@/lib/assets';
 
-const WEDDING_DATE = new Date('2026-10-18T07:00:00+07:00');
+const WEDDING_DATE = new Date('2026-10-18T08:00:00+08:00');
 
 export default function HeroSection() {
   const { guestName } = useInvitation();

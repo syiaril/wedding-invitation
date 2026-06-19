@@ -8,7 +8,7 @@ const events = [
     title: 'Akad Nikah',
     day: 'Minggu',
     date: '18 Oktober 2026',
-    time: '07:00 WIB - Selesai',
+    time: '08:00 WIB - Selesai',
     venue: 'Kediaman Mempelai Putri',
     address: 'Dsn. Sedengan Kulon, RT 08 RW 04, Ds. Arjosari, Kec. Rejoso, Kab. Pasuruan',
     calendarUrl: `https://calendar.google.com/calendar/render?action=TEMPLATE&text=Akad+Nikah+Nandar+%26+Salsa&dates=20261018T000000Z/20261018T040000Z&details=Akad+Nikah+Nandar+%26+Salsa&location=Dsn.+Sedengan+Kulon+Ds.+Arjosari+Kec.+Rejoso+Kab.+Pasuruan`,

@@ -212,6 +212,41 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--color-sage-700) !important;
 }
 
+/* ===== Ticket Divider ===== */
+.ticket-divider {
+  border: none;
+  border-top: 2px dashed var(--color-earth-200);
+  margin: 0;
+}
+
+/* ===== Scanner Line Animation ===== */
+@keyframes scanner-sweep {
+  0%, 100% { top: 10%; }
+  50% { top: 85%; }
+}
+
+.scanner-line {
+  animation: scanner-sweep 2.5s ease-in-out infinite;
+}
+
+/* ===== Emerald (Check-in Success) ===== */
+@theme inline {
+  --color-emerald-50: #ECFDF5;
+  --color-emerald-100: #D1FAE5;
+  --color-emerald-200: #A7F3D0;
+  --color-emerald-300: #6EE7B7;
+  --color-emerald-400: #34D399;
+  --color-emerald-500: #10B981;
+  --color-emerald-600: #059669;
+
+  --color-amber-500: #F59E0B;
+  --color-red-300: #FCA5A5;
+  --color-red-400: #F87171;
+  --color-red-600: #DC2626;
+
+  --color-gold-100: #FEF9E7;
+}
+
 /* ===== Selection ===== */
 ::selection {
   background: var(--color-dusty-200);
