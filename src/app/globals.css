@@ -252,3 +252,120 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--color-dusty-200);
   color: var(--color-sage-800);
 }
+
+/* ===== Ticket Bottom Sheet ===== */
+
+/* Backdrop */
+.ticket-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(42, 53, 37, 0.45);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+/* Panel */
+.ticket-panel {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 110;
+  max-height: 90vh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: linear-gradient(
+    180deg,
+    #FDFCF9 0%,
+    var(--color-earth-50) 100%
+  );
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  box-shadow:
+    0 -8px 40px rgba(0, 0, 0, 0.1),
+    0 -2px 8px rgba(0, 0, 0, 0.04);
+  touch-action: none;
+}
+
+/* Drag Handle */
+.ticket-panel__handle-area {
+  display: flex;
+  justify-content: center;
+  padding: 12px 0 4px;
+  cursor: grab;
+}
+
+.ticket-panel__handle {
+  width: 36px;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--color-earth-300);
+  opacity: 0.7;
+}
+
+/* Header */
+.ticket-panel__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 20px 4px;
+}
+
+.ticket-panel__title-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ticket-panel__title {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-sage-800);
+  letter-spacing: 0.01em;
+}
+
+.ticket-panel__close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 50%;
+  background: var(--color-earth-100);
+  color: var(--color-sage-600);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ticket-panel__close:hover {
+  background: var(--color-earth-200);
+  color: var(--color-sage-800);
+}
+
+/* Swipe hint */
+.ticket-panel__swipe-hint {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 2px 0 8px;
+  font-size: 11px;
+  color: var(--color-earth-400);
+  letter-spacing: 0.02em;
+  user-select: none;
+}
+
+/* Content */
+.ticket-panel__content {
+  padding: 8px 16px 32px;
+}
+
+/* Safe area for bottom notch devices */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .ticket-panel__content {
+    padding-bottom: calc(32px + env(safe-area-inset-bottom));
+  }
+}

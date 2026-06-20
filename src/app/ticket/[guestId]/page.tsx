@@ -11,6 +11,7 @@ interface GuestData {
   id: string;
   nama_tamu: string;
   kategori: string;
+  kode_tiket: string;
 }
 
 export default async function TicketPage(props: { params: Promise<{ guestId: string }> }) {
@@ -19,7 +20,7 @@ export default async function TicketPage(props: { params: Promise<{ guestId: str
   // Fetch guest data from Supabase
   const { data: guest, error } = await supabase
     .from('guest_list')
-    .select('id, nama_tamu, kategori')
+    .select('id, nama_tamu, kategori, kode_tiket')
     .eq('id', guestId)
     .single();
 
@@ -47,6 +48,7 @@ export default async function TicketPage(props: { params: Promise<{ guestId: str
         guestId={guestData.id}
         guestName={guestData.nama_tamu}
         category={guestData.kategori}
+        kodeTiket={guestData.kode_tiket}
       />
     </div>
   );

@@ -17,6 +17,7 @@ import GallerySection from '@/components/sections/GallerySection';
 import GiftSection from '@/components/sections/GiftSection';
 import RSVPSection from '@/components/sections/RSVPSection';
 import ClosingSection from '@/components/sections/ClosingSection';
+import FloatingTicket from '@/components/ui/FloatingTicket';
 
 function InvitationContent() {
   const { isOpen } = useInvitation();
@@ -45,6 +46,7 @@ function InvitationContent() {
       )}
 
       <MusicToggle />
+      <FloatingTicket />
     </>
   );
 }

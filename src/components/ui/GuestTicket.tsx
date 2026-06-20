@@ -8,6 +8,7 @@ interface GuestTicketProps {
   guestId: string;
   guestName: string;
   category: string;
+  kodeTiket: string;
 }
 
 const categoryStyles: Record<string, string> = {
@@ -21,7 +22,7 @@ function getCategoryStyle(category: string): string {
   return categoryStyles[key] || 'bg-sage-100 text-sage-600 border-sage-200';
 }
 
-export default function GuestTicket({ guestId, guestName, category }: GuestTicketProps) {
+export default function GuestTicket({ guestId, guestName, category, kodeTiket }: GuestTicketProps) {
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.95, y: 20 }}
@@ -88,7 +89,7 @@ export default function GuestTicket({ guestId, guestName, category }: GuestTicke
             className="p-3 bg-white rounded-xl border border-earth-100 shadow-sm"
           >
             <QRCode
-              value={guestId}
+              value={kodeTiket}
               size={160}
               level="M"
               bgColor="#FFFFFF"

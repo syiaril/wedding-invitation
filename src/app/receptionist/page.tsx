@@ -20,6 +20,7 @@ interface Guest {
   id: string;
   nama_tamu: string;
   kategori: string;
+  kode_tiket: string;
   status_kehadiran: boolean;
   waktu_check_in: string | null;
 }
@@ -234,12 +235,12 @@ export default function ReceptionistPage() {
 
   // ─── Check-in Logic ────────────────────────────────────────
   const performCheckIn = useCallback(
-    async (guestId: string) => {
-      // Fetch guest
+    async (kodeTiket: string) => {
+      // Fetch guest by kode_tiket
       const { data: guest, error } = await supabase
         .from('guest_list')
         .select('id, nama_tamu, kategori, status_kehadiran')
-        .eq('id', guestId)
+        .eq('kode_tiket', kodeTiket)
         .single();
 
       if (error || !guest) {
@@ -252,14 +253,14 @@ export default function ReceptionistPage() {
         return false;
       }
 
-      // Update status
+      // Update status using the guest's internal id
       const { error: updateError } = await supabase
         .from('guest_list')
         .update({
           status_kehadiran: true,
           waktu_check_in: new Date().toISOString(),
         })
-        .eq('id', guestId);
+        .eq('id', guest.id);
 
       if (updateError) {
         showToastMsg('❌ Gagal check-in. Silakan coba lagi.', 'error');
@@ -291,15 +292,16 @@ export default function ReceptionistPage() {
       // Pause scanner
       setScannerPaused(true);
 
-      // Validate UUID format
-      const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
-      if (!uuidRegex.test(decodedText.trim())) {
+      // Validate 6-character alphanumeric kode_tiket format
+      const kodeRegex = /^[A-Z0-9]{6}$/;
+      const kode = decodedText.trim().toUpperCase();
+      if (!kodeRegex.test(kode)) {
         showToastMsg('❌ QR Code tidak valid.', 'error');
         setTimeout(() => setScannerPaused(false), 1500);
         return;
       }
 
-      await performCheckIn(decodedText.trim());
+      await performCheckIn(kode);
 
       // Resume scanner after 2.5 seconds
       setTimeout(() => {
@@ -326,8 +328,8 @@ export default function ReceptionistPage() {
   }, [searchQuery]);
 
   const handleManualCheckIn = useCallback(
-    async (guestId: string) => {
-      const success = await performCheckIn(guestId);
+    async (kodeTiket: string) => {
+      const success = await performCheckIn(kodeTiket);
       if (success) {
         setSearchQuery('');
         setSearchResults([]);
@@ -458,7 +460,7 @@ export default function ReceptionistPage() {
                         </span>
                       ) : (
                         <button
-                          onClick={() => handleManualCheckIn(guest.id)}
+                          onClick={() => handleManualCheckIn(guest.kode_tiket)}
                           className="px-3 py-1.5 rounded-lg bg-sage-600 text-white text-xs
                             font-medium hover:bg-sage-700 active:scale-[0.97] transition-all duration-200"
                         >
