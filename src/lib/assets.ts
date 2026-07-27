@@ -29,7 +29,22 @@ export const COVER_BG = getStorageUrl('images/cover.jpg');
 export const COUPLE_PHOTO = getStorageUrl('images/couple.jpg');
 
 // Gallery photos
-export const GALLERY_PHOTOS = Array.from({ length: 12 }, (_, i) => ({
-  src: getStorageUrl(`images/gallery/${i + 1}.jpg`),
+const galleryFileNames = [
+  'foto-studio-1.jpg',
+  'foto-studio-2.jpg',
+  'lamaran-1.jpg',
+  'lamaran-2.jpg',
+  'prewed-putih-1.jpg',
+  'prewed-putih-2.jpg',
+  'prewed-putih-3.jpg',
+  'prewed-putih-4.jpg',
+  'prewed-merah-1.jpg',
+  'prewed-merah-2.jpg',
+  'prewed-merah-3.jpg',
+  'prewed-merah-4.jpg'
+];
+
+export const GALLERY_PHOTOS = galleryFileNames.map((fileName, i) => ({
+  src: getStorageUrl(`images/gallery/${fileName}`),
   alt: `Wedding moment ${i + 1}`,
 }));
