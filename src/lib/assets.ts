@@ -13,7 +13,7 @@ const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const BUCKET = 'wedding-assets';
 
 function getStorageUrl(path: string): string {
-  return `${SUPABASE_URL}/storage/v1/object/public/${BUCKET}/${path}`;
+  return `${SUPABASE_URL}/storage/v1/object/public/${BUCKET}/${path}?v=1`;
 }
 
 // Background music
