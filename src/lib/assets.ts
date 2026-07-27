@@ -31,13 +31,13 @@ export const COUPLE_PHOTO = getStorageUrl('images/couple.jpg');
 // Gallery photos
 const galleryFileNames = [
   'foto-studio-1.jpg',
-  'foto-studio-2.jpg',
   'lamaran-1.jpg',
-  'lamaran-2.jpg',
   'prewed-putih-1.jpg',
   'prewed-putih-2.jpg',
   'prewed-putih-3.jpg',
   'prewed-putih-4.jpg',
+  'foto-studio-2.jpg',
+  'lamaran-2.jpg',
   'prewed-merah-1.jpg',
   'prewed-merah-2.jpg',
   'prewed-merah-3.jpg',
