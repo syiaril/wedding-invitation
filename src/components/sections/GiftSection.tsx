@@ -18,6 +18,18 @@ const bankAccounts = [
     accountName: 'Muhammad Asmunandar',
     color: 'from-yellow-600 to-yellow-800',
   },
+  {
+    bank: 'BSI',
+    accountNumber: '7258700435',
+    accountName: 'Salasatin Ismiah',
+    color: 'from-emerald-600 to-emerald-800',
+  },
+  {
+    bank: 'ShopeePay',
+    accountNumber: '083852538623',
+    accountName: 'Salasatin Ismiah',
+    color: 'from-orange-500 to-orange-700',
+  },
 ];
 
 export default function GiftSection() {

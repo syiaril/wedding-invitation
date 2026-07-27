@@ -95,7 +95,7 @@ export default function OpeningSection() {
                 Putri dari
               </p>
               <p className="text-sage-700 text-sm">
-                Bpk. Sakroni & Ibu Suminah
+                Bpk. Sa'roni & Ibu Suminah
               </p>
             </div>
           </AnimatedSection>
