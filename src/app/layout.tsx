@@ -6,13 +6,13 @@ const FAVICON_URL = "https://phzbfeoxgwqfmulacpzn.supabase.co/storage/v1/object/
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://wedding.mhmdsyiaril.my.id"),
-  title: "The Wedding of Nandar & Salsa | 18 Oktober 2026",
+  title: "The Wedding of Asmunandar & Salasatin | 18 Oktober 2026",
   description:
-    "Kami mengundang Anda untuk merayakan momen bahagia pernikahan Nandar & Salsa. 18 Oktober 2026.",
+    "Kami mengundang Anda untuk merayakan momen bahagia pernikahan Asmunandar & Salasatin. 18 Oktober 2026.",
   openGraph: {
-    title: "The Wedding of Nandar & Salsa",
+    title: "The Wedding of Asmunandar & Salasatin",
     description:
-      "Kami mengundang Anda untuk merayakan momen bahagia pernikahan Nandar & Salsa.",
+      "Kami mengundang Anda untuk merayakan momen bahagia pernikahan Asmunandar & Salasatin.",
     type: "website",
     images: [OG_IMAGE_URL],
   },

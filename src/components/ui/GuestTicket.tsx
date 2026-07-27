@@ -40,7 +40,7 @@ export default function GuestTicket({ guestId, guestName, category, kodeTiket }:
             The Wedding of
           </p>
           <h2 className="font-serif text-sage-800 text-lg tracking-wide">
-            Nandar & Salsa
+            Asmunandar & Salasatin
           </h2>
           <p className="text-earth-400 text-[11px] tracking-[0.2em] uppercase mt-1.5">
             18 Oktober 2026

@@ -62,7 +62,7 @@ export default function HeroSection() {
             className="text-6xl md:text-8xl text-white mb-2"
             style={{ fontFamily: 'Great Vibes, cursive' }}
           >
-            Nandar
+            Asmunandar
           </h2>
           <div className="ornament-divider">
             <span className="text-gold-400 text-2xl">&amp;</span>
@@ -71,7 +71,7 @@ export default function HeroSection() {
             className="text-6xl md:text-8xl text-white mb-6"
             style={{ fontFamily: 'Great Vibes, cursive' }}
           >
-            Salsa
+            Salasatin
           </h2>
         </AnimatedSection>
 

@@ -365,7 +365,7 @@ export default function ReceptionistPage() {
               Receptionist
             </h1>
             <p className="text-sage-400 text-[11px] tracking-wide">
-              Nandar & Salsa — 18 Okt 2026
+              Asmunandar & Salasatin — 18 Okt 2026
             </p>
           </div>
           <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-sage-50 border border-sage-100">

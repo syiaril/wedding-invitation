@@ -72,6 +72,7 @@ export default function GallerySection() {
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                   sizes="(max-width: 768px) 50vw, 33vw"
                   loading="lazy"
+                  unoptimized
                 />
               </div>
             </AnimatedSection>
@@ -126,6 +127,7 @@ export default function GallerySection() {
                   className="object-contain"
                   sizes="90vw"
                   priority
+                  unoptimized
                 />
               </motion.div>
 

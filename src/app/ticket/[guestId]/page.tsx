@@ -3,8 +3,8 @@ import { supabase } from '@/lib/supabase';
 import GuestTicketClient from './GuestTicketClient';
 
 export const metadata: Metadata = {
-  title: 'E-Ticket | The Wedding of Nandar & Salsa',
-  description: 'E-Ticket digital untuk acara pernikahan Nandar & Salsa. 18 Oktober 2026.',
+  title: 'E-Ticket | The Wedding of Asmunandar & Salasatin',
+  description: 'E-Ticket digital untuk acara pernikahan Asmunandar & Salasatin. 18 Oktober 2026.',
 };
 
 interface GuestData {

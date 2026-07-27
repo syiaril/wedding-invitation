@@ -29,7 +29,7 @@ export const COVER_BG = getStorageUrl('images/cover.jpg');
 export const COUPLE_PHOTO = getStorageUrl('images/couple.jpg');
 
 // Gallery photos
-export const GALLERY_PHOTOS = Array.from({ length: 11 }, (_, i) => ({
+export const GALLERY_PHOTOS = Array.from({ length: 12 }, (_, i) => ({
   src: getStorageUrl(`images/gallery/${i + 1}.jpg`),
   alt: `Wedding moment ${i + 1}`,
 }));

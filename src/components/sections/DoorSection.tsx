@@ -67,7 +67,7 @@ export default function DoorSection() {
               className="text-white text-5xl md:text-7xl mb-2"
               style={{ fontFamily: 'Great Vibes, cursive' }}
             >
-              Nandar
+              Asmunandar
             </motion.h1>
             <motion.div
               initial={{ opacity: 0, scaleX: 0 }}
@@ -84,7 +84,7 @@ export default function DoorSection() {
               className="text-white text-5xl md:text-7xl mb-8"
               style={{ fontFamily: 'Great Vibes, cursive' }}
             >
-              Salsa
+              Salasatin
             </motion.h1>
 
             {/* Guest Name */}

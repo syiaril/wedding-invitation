@@ -51,7 +51,7 @@ export default function OpeningSection() {
               border-4 border-gold-400/40 shadow-xl shadow-sage-200/50 relative">
               <Image
                 src={COUPLE_PHOTO}
-                alt="Nandar & Salsa"
+                alt="Asmunandar & Salasatin"
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 192px, 224px"

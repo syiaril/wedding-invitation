@@ -59,7 +59,7 @@ export default function GiftSection() {
   };
 
   const handleGiftConfirm = () => {
-    const message = `Halo Nandar & Salsa! 🎁\n\nSaya *${senderName || 'Tamu'}* ingin mengkonfirmasi hadiah sebesar *Rp ${nominal || '0'}*.\n\nSemoga menjadi berkah untuk kalian berdua. Aamiin 🤲`;
+    const message = `Halo Asmunandar & Salasatin! 🎁\n\nSaya *${senderName || 'Tamu'}* ingin mengkonfirmasi hadiah sebesar *Rp ${nominal || '0'}*.\n\nSemoga menjadi berkah untuk kalian berdua. Aamiin 🤲`;
     const waUrl = `https://wa.me/6285730008802?text=${encodeURIComponent(message)}`;
     window.open(waUrl, '_blank');
   };

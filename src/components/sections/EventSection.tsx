@@ -11,7 +11,7 @@ const events = [
     time: '08:00 WIB - Selesai',
     venue: 'Kediaman Mempelai Putri',
     address: 'Dsn. Sedengan Kulon, RT 08 RW 04, Ds. Arjosari, Kec. Rejoso, Kab. Pasuruan',
-    calendarUrl: `https://calendar.google.com/calendar/render?action=TEMPLATE&text=Akad+Nikah+Nandar+%26+Salsa&dates=20261018T000000Z/20261018T040000Z&details=Akad+Nikah+Nandar+%26+Salsa&location=Dsn.+Sedengan+Kulon+Ds.+Arjosari+Kec.+Rejoso+Kab.+Pasuruan`,
+    calendarUrl: `https://calendar.google.com/calendar/render?action=TEMPLATE&text=Akad+Nikah+Asmunandar+%26+Salasatin&dates=20261018T000000Z/20261018T040000Z&details=Akad+Nikah+Asmunandar+%26+Salasatin&location=Dsn.+Sedengan+Kulon+Ds.+Arjosari+Kec.+Rejoso+Kab.+Pasuruan`,
   },
   {
     title: 'Resepsi - Mempelai Putri',
@@ -20,7 +20,7 @@ const events = [
     time: 'Bebas',
     venue: 'Kediaman Mempelai Putri',
     address: 'Dsn. Sedengan Kulon, RT 08 RW 04, Ds. Arjosari, Kec. Rejoso, Kab. Pasuruan',
-    calendarUrl: `https://calendar.google.com/calendar/render?action=TEMPLATE&text=Resepsi+Nandar+%26+Salsa+(Mempelai+Putri)&dates=20261018T000000Z/20261018T120000Z&details=Resepsi+Pernikahan+Nandar+%26+Salsa&location=Dsn.+Sedengan+Kulon+Ds.+Arjosari+Kec.+Rejoso+Kab.+Pasuruan`,
+    calendarUrl: `https://calendar.google.com/calendar/render?action=TEMPLATE&text=Resepsi+Asmunandar+%26+Salasatin+(Mempelai+Putri)&dates=20261018T000000Z/20261018T120000Z&details=Resepsi+Pernikahan+Asmunandar+%26+Salasatin&location=Dsn.+Sedengan+Kulon+Ds.+Arjosari+Kec.+Rejoso+Kab.+Pasuruan`,
   },
   {
     title: 'Resepsi - Mempelai Putra',
@@ -29,7 +29,7 @@ const events = [
     time: 'Bebas',
     venue: 'Kediaman Mempelai Putra',
     address: 'Dsn. Krajan, RT 01 RW 02, Ds. Tebas, Kec. Gondangwetan, Kab. Pasuruan',
-    calendarUrl: `https://calendar.google.com/calendar/render?action=TEMPLATE&text=Resepsi+Nandar+%26+Salsa+(Mempelai+Putra)&dates=20261023T000000Z/20261024T120000Z&details=Resepsi+Pernikahan+Nandar+%26+Salsa&location=Dsn.+Krajan+Ds.+Tebas+Kec.+Gondangwetan+Kab.+Pasuruan`,
+    calendarUrl: `https://calendar.google.com/calendar/render?action=TEMPLATE&text=Resepsi+Asmunandar+%26+Salasatin+(Mempelai+Putra)&dates=20261023T000000Z/20261024T120000Z&details=Resepsi+Pernikahan+Asmunandar+%26+Salasatin&location=Dsn.+Krajan+Ds.+Tebas+Kec.+Gondangwetan+Kab.+Pasuruan`,
   },
 ];
 

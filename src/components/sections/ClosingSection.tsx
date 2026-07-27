@@ -52,7 +52,7 @@ export default function ClosingSection() {
             className="text-5xl md:text-6xl text-white mb-2"
             style={{ fontFamily: 'Great Vibes, cursive' }}
           >
-            Nandar
+            Asmunandar
           </h2>
           <div className="flex justify-center my-2">
             <Heart size={20} className="text-dusty-300" fill="currentColor" />
@@ -61,7 +61,7 @@ export default function ClosingSection() {
             className="text-5xl md:text-6xl text-white mb-8"
             style={{ fontFamily: 'Great Vibes, cursive' }}
           >
-            Salsa
+            Salasatin
           </h2>
         </AnimatedSection>
 
@@ -97,7 +97,7 @@ export default function ClosingSection() {
         {/* Copyright */}
         <div className="mt-16 pt-6 border-t border-white/10">
           <div className="text-white/30 text-[10px] tracking-wider flex flex-col items-center gap-1">
-            <p>© 2026 Nandar & Salsa.</p>
+            <p>© 2026 Asmunandar & Salasatin.</p>
             <p>
               Created by{' '}
               <a 
