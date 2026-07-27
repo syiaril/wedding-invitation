@@ -12,7 +12,6 @@ import OpeningSection from '@/components/sections/OpeningSection';
 import EventSection from '@/components/sections/EventSection';
 import LocationSection from '@/components/sections/LocationSection';
 import LoveStorySection from '@/components/sections/LoveStorySection';
-import VideoSection from '@/components/sections/VideoSection';
 import GallerySection from '@/components/sections/GallerySection';
 import GiftSection from '@/components/sections/GiftSection';
 import RSVPSection from '@/components/sections/RSVPSection';
@@ -37,7 +36,6 @@ function InvitationContent() {
           <EventSection />
           <LocationSection />
           <LoveStorySection />
-          <VideoSection />
           <GallerySection />
           <GiftSection />
           <RSVPSection />
