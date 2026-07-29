@@ -26,22 +26,22 @@ export const HERO_BG = getStorageUrl('images/hero.jpg');
 export const COVER_BG = getStorageUrl('images/cover.jpg');
 
 // Couple photo (Opening section)
-export const COUPLE_PHOTO = getStorageUrl('images/couple.jpg');
+export const COUPLE_PHOTO = getStorageUrl('images/couple.webp');
 
 // Gallery photos
 const galleryFileNames = [
-  'foto-studio-1.jpg',
-  'lamaran-1.jpg',
-  'prewed-putih-1.jpg',
-  'prewed-putih-2.jpg',
-  'prewed-putih-3.jpg',
-  'prewed-putih-4.jpg',
-  'foto-studio-2.jpg',
-  'lamaran-2.jpg',
-  'prewed-merah-1.jpg',
-  'prewed-merah-2.jpg',
-  'prewed-merah-3.jpg',
-  'prewed-merah-4.jpg'
+  'foto-studio-1.webp',
+  'lamaran-1.webp',
+  'prewed-putih-1.webp',
+  'prewed-putih-2.webp',
+  'prewed-putih-3.webp',
+  'prewed-putih-4.webp',
+  'foto-studio-2.webp',
+  'lamaran-2.webp',
+  'prewed-merah-1.webp',
+  'prewed-merah-2.webp',
+  'prewed-merah-3.webp',
+  'prewed-merah-4.webp'
 ];
 
 export const GALLERY_PHOTOS = galleryFileNames.map((fileName, i) => ({
