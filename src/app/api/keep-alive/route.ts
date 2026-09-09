@@ -1,36 +1,42 @@
 import { NextResponse } from 'next/server';
 import { supabase } from '@/lib/supabase';
 
-/**
- * Keep-alive endpoint to prevent Supabase from auto-pausing.
- * 
- * Set up a free cron service (e.g., cron-job.org) to call this
- * endpoint every 5 days:
- *   GET https://your-domain.com/api/keep-alive
- */
 export async function GET() {
   try {
-    // Simple query to keep Supabase active
-    const { count, error } = await supabase
+    const { data, error } = await supabase
       .from('rsvp')
-      .select('*', { count: 'exact', head: true });
+      .select('id')
+      .limit(1);
 
     if (error) {
+      console.error('Supabase keep-alive error:', error);
+
       return NextResponse.json(
-        { status: 'error', message: error.message, timestamp: new Date().toISOString() },
+        {
+          status: 'error',
+          message: error.message,
+          timestamp: new Date().toISOString(),
+        },
         { status: 500 }
       );
     }
 
     return NextResponse.json({
       status: 'ok',
-      message: 'Supabase is alive!',
-      rsvp_count: count,
+      message: 'Supabase database query successful',
+      database: 'active',
+      rows_returned: data?.length ?? 0,
       timestamp: new Date().toISOString(),
     });
   } catch (err) {
+    console.error('Keep-alive error:', err);
+
     return NextResponse.json(
-      { status: 'error', message: 'Failed to ping Supabase', timestamp: new Date().toISOString() },
+      {
+        status: 'error',
+        message: err instanceof Error ? err.message : 'Failed to ping Supabase',
+        timestamp: new Date().toISOString(),
+      },
       { status: 500 }
     );
   }
