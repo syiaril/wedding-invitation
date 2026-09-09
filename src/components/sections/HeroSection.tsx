@@ -32,6 +32,7 @@ export default function HeroSection() {
         alt="Wedding Hero"
         fill
         priority
+        unoptimized
         className="object-cover"
         sizes="100vw"
       />

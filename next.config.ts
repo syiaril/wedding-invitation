@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",
@@ -9,7 +10,6 @@ const nextConfig = {
     ],
   },
   // Fix for cross-origin HMR warnings when accessing via local network
-  // @ts-ignore - this might be a newer or experimental property in some versions
   allowedDevOrigins: ['192.168.1.5'],
 };
 

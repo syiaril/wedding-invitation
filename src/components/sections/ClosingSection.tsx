@@ -27,6 +27,7 @@ export default function ClosingSection() {
         src={COVER_BG}
         alt="Closing background"
         fill
+        unoptimized
         className="object-cover"
         sizes="100vw"
         loading="lazy"

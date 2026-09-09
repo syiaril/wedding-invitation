@@ -68,26 +68,74 @@ export default function RSVPSection() {
     if (data) setWishes(data);
   }, []);
 
-  // Fetch reactions
-  const fetchReactions = useCallback(async () => {
-    const { data } = await supabase
-      .from('reactions')
-      .select('*')
-      .order('emoji');
-    if (data) setReactions(data);
-  }, []);
-
   useEffect(() => {
-    fetchWishes();
-    fetchReactions();
+    let isMounted = true;
 
-    // Check if user has already reacted
-    const savedReaction = localStorage.getItem('wedding_reaction');
-    if (savedReaction) {
-      setHasReacted(true);
-      setUserReaction(savedReaction);
-    }
-  }, [fetchWishes, fetchReactions]);
+    const loadInitialData = async () => {
+      const [wishesRes, reactionsRes] = await Promise.all([
+        supabase
+          .from('wishes')
+          .select('*')
+          .order('created_at', { ascending: false })
+          .limit(50),
+        supabase
+          .from('reactions')
+          .select('*')
+          .order('emoji'),
+      ]);
+
+      if (isMounted) {
+        if (wishesRes.data) setWishes(wishesRes.data);
+        if (reactionsRes.data) setReactions(reactionsRes.data);
+
+        // Check if user has already reacted
+        const savedReaction = localStorage.getItem('wedding_reaction');
+        if (savedReaction) {
+          setHasReacted(true);
+          setUserReaction(savedReaction);
+        }
+      }
+    };
+
+    loadInitialData();
+
+    // Realtime channel for live wishes & reactions
+    const channel = supabase
+      .channel('realtime-wishes-reactions')
+      .on(
+        'postgres_changes',
+        { event: 'INSERT', schema: 'public', table: 'wishes' },
+        (payload) => {
+          const newWish = payload.new as Wish;
+          setWishes((prev) => {
+            if (prev.some((w) => w.id === newWish.id)) return prev;
+            return [newWish, ...prev];
+          });
+        }
+      )
+      .on(
+        'postgres_changes',
+        { event: '*', schema: 'public', table: 'reactions' },
+        (payload) => {
+          if (payload.eventType === 'UPDATE' || payload.eventType === 'INSERT') {
+            const updated = payload.new as Reaction;
+            setReactions((prev) => {
+              const exists = prev.some((r) => r.emoji === updated.emoji);
+              if (exists) {
+                return prev.map((r) => (r.emoji === updated.emoji ? updated : r));
+              }
+              return [...prev, updated];
+            });
+          }
+        }
+      )
+      .subscribe();
+
+    return () => {
+      isMounted = false;
+      supabase.removeChannel(channel);
+    };
+  }, []);
 
   // Handle RSVP submit
   const handleRsvpSubmit = async (e: React.FormEvent) => {
@@ -143,7 +191,7 @@ export default function RSVPSection() {
 
     // Optimistic local update (handling missing emojis safely)
     setReactions((prev) => {
-      let nextState = [...prev];
+      const nextState = [...prev];
       if (!nextState.find(r => r.emoji === newEmoji)) {
         nextState.push({ id: Math.random().toString(), emoji: newEmoji, count: 0 });
       }

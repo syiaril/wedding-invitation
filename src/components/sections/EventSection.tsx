@@ -1,6 +1,6 @@
 'use client';
 
-import { Calendar, Clock, MapPin, Video } from 'lucide-react';
+import { Calendar, Clock, MapPin } from 'lucide-react';
 import AnimatedSection from '@/components/ui/AnimatedSection';
 
 const events = [

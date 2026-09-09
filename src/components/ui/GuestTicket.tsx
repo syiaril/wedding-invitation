@@ -22,7 +22,7 @@ function getCategoryStyle(category: string): string {
   return categoryStyles[key] || 'bg-sage-100 text-sage-600 border-sage-200';
 }
 
-export default function GuestTicket({ guestId, guestName, category, kodeTiket }: GuestTicketProps) {
+export default function GuestTicket({ guestName, category, kodeTiket }: GuestTicketProps) {
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.95, y: 20 }}

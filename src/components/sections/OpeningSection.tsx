@@ -1,10 +1,13 @@
 'use client';
 
+import { useState } from 'react';
 import Image from 'next/image';
 import AnimatedSection from '@/components/ui/AnimatedSection';
 import { COUPLE_PHOTO } from '@/lib/assets';
 
 export default function OpeningSection() {
+  const [imgSrc, setImgSrc] = useState(COUPLE_PHOTO);
+
   return (
     <section id="opening" className="relative py-20 px-6 bg-earth-50 overflow-hidden">
       {/* Background pattern */}
@@ -50,11 +53,18 @@ export default function OpeningSection() {
             <div className="w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden
               border-4 border-gold-400/40 shadow-xl shadow-sage-200/50 relative">
               <Image
-                src={COUPLE_PHOTO}
+                src={imgSrc}
                 alt="Asmunandar & Salasatin"
                 fill
+                priority
+                unoptimized
                 className="object-cover"
                 sizes="(max-width: 768px) 192px, 224px"
+                onError={() => {
+                  if (imgSrc.includes('couple.webp')) {
+                    setImgSrc(imgSrc.replace('couple.webp', 'couple.jpg'));
+                  }
+                }}
               />
             </div>
           </div>
@@ -95,7 +105,7 @@ export default function OpeningSection() {
                 Putri dari
               </p>
               <p className="text-sage-700 text-sm">
-                Bpk. Sa'roni & Ibu Suminah
+                Bpk. Sa&apos;roni &amp; Ibu Suminah
               </p>
             </div>
           </AnimatedSection>

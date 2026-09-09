@@ -71,24 +71,42 @@ function PinGate({ onUnlock }: { onUnlock: () => void }) {
   const [pin, setPin] = useState('');
   const [error, setError] = useState(false);
   const [shaking, setShaking] = useState(false);
+  const [isVerifying, setIsVerifying] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
-
-  const correctPin = process.env.NEXT_PUBLIC_RECEPTIONIST_PIN || '1818';
 
   useEffect(() => {
     inputRef.current?.focus();
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (pin === correctPin) {
-      onUnlock();
-    } else {
+    if (isVerifying || !pin.trim()) return;
+
+    setIsVerifying(true);
+    try {
+      const res = await fetch('/api/receptionist/verify', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ pin: pin.trim() }),
+      });
+      const data = await res.json();
+
+      if (res.ok && data.success) {
+        onUnlock();
+      } else {
+        setError(true);
+        setShaking(true);
+        setPin('');
+        setTimeout(() => setShaking(false), 500);
+        setTimeout(() => setError(false), 2000);
+      }
+    } catch {
       setError(true);
       setShaking(true);
-      setPin('');
       setTimeout(() => setShaking(false), 500);
       setTimeout(() => setError(false), 2000);
+    } finally {
+      setIsVerifying(false);
     }
   };
 
@@ -147,12 +165,13 @@ function PinGate({ onUnlock }: { onUnlock: () => void }) {
 
           <button
             type="submit"
+            disabled={isVerifying}
             className="w-full mt-4 flex items-center justify-center gap-2 px-6 py-3.5
               rounded-xl bg-sage-600 text-white text-sm font-medium tracking-wider
-              hover:bg-sage-700 active:scale-[0.98] transition-all duration-200"
+              hover:bg-sage-700 active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed transition-all duration-200"
           >
             <LogIn size={16} />
-            Masuk
+            {isVerifying ? 'Memverifikasi...' : 'Masuk'}
           </button>
         </form>
       </motion.div>
@@ -216,11 +235,38 @@ export default function ReceptionistPage() {
   }, []);
 
   useEffect(() => {
+    let isMounted = true;
     if (isUnlocked) {
-      fetchStats();
-      fetchRecentCheckins();
+      const loadInitialData = async () => {
+        const { count: total } = await supabase
+          .from('guest_list')
+          .select('*', { count: 'exact', head: true });
+
+        const { count: checkedIn } = await supabase
+          .from('guest_list')
+          .select('*', { count: 'exact', head: true })
+          .eq('status_kehadiran', true);
+
+        const { data: recent } = await supabase
+          .from('guest_list')
+          .select('*')
+          .eq('status_kehadiran', true)
+          .order('waktu_check_in', { ascending: false })
+          .limit(5);
+
+        if (isMounted) {
+          setTotalGuests(total || 0);
+          setCheckedInCount(checkedIn || 0);
+          if (recent) setRecentCheckins(recent);
+        }
+      };
+
+      loadInitialData();
     }
-  }, [isUnlocked, fetchStats, fetchRecentCheckins]);
+    return () => {
+      isMounted = false;
+    };
+  }, [isUnlocked]);
 
   // ─── Show Toast ────────────────────────────────────────────
   const showToastMsg = useCallback(

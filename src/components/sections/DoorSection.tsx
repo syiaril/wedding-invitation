@@ -31,6 +31,7 @@ export default function DoorSection() {
             alt="Wedding Cover"
             fill
             priority
+            unoptimized
             className="object-cover"
             sizes="100vw"
           />

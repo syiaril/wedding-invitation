@@ -16,7 +16,9 @@ export default function QrScanner({ onScanSuccess, isPaused }: QrScannerProps) {
   const [isStarting, setIsStarting] = useState(true);
 
   // Keep callback ref in sync
-  onScanSuccessRef.current = onScanSuccess;
+  useEffect(() => {
+    onScanSuccessRef.current = onScanSuccess;
+  }, [onScanSuccess]);
 
   useEffect(() => {
     let mounted = true;
