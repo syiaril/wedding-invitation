@@ -1,10 +1,12 @@
 import { NextResponse } from 'next/server';
 import { supabase } from '@/lib/supabase';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET() {
   try {
     const { data, error } = await supabase
-      .from('rsvp')
+      .from('rsvps')
       .select('id')
       .limit(1);
 
@@ -24,17 +26,20 @@ export async function GET() {
     return NextResponse.json({
       status: 'ok',
       message: 'Supabase database query successful',
-      database: 'active',
-      rows_returned: data?.length ?? 0,
+      database: 'connected',
+      rows: data?.length ?? 0,
       timestamp: new Date().toISOString(),
     });
-  } catch (err) {
-    console.error('Keep-alive error:', err);
+
+  } catch (error) {
+    console.error('Keep alive failed:', error);
 
     return NextResponse.json(
       {
         status: 'error',
-        message: err instanceof Error ? err.message : 'Failed to ping Supabase',
+        message: error instanceof Error
+          ? error.message
+          : 'Failed to connect to Supabase',
         timestamp: new Date().toISOString(),
       },
       { status: 500 }
