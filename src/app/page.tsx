@@ -13,6 +13,7 @@ import EventSection from '@/components/sections/EventSection';
 import LocationSection from '@/components/sections/LocationSection';
 import LoveStorySection from '@/components/sections/LoveStorySection';
 import GallerySection from '@/components/sections/GallerySection';
+import GuestPhotoSection from '@/components/sections/GuestPhotoSection';
 import GiftSection from '@/components/sections/GiftSection';
 import RSVPSection from '@/components/sections/RSVPSection';
 import ClosingSection from '@/components/sections/ClosingSection';
@@ -37,6 +38,7 @@ function InvitationContent() {
           <LocationSection />
           <LoveStorySection />
           <GallerySection />
+          <GuestPhotoSection />
           <GiftSection />
           <RSVPSection />
           <ClosingSection />

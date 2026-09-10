@@ -6,6 +6,7 @@ import { X, ChevronLeft, ChevronRight, Image as ImageIcon } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import AnimatedSection from '@/components/ui/AnimatedSection';
 import { GALLERY_PHOTOS } from '@/lib/assets';
+import PublicGuestGallery from '@/components/guest-photos/PublicGuestGallery';
 
 const galleryImages = GALLERY_PHOTOS;
 
@@ -149,6 +150,9 @@ export default function GallerySection() {
             </motion.div>
           )}
         </AnimatePresence>
+
+        {/* Public Guest Gallery Sub-section */}
+        <PublicGuestGallery />
       </div>
     </section>
   );

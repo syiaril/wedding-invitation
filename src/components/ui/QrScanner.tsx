@@ -74,8 +74,16 @@ export default function QrScanner({ onScanSuccess, isPaused }: QrScannerProps) {
       mounted = false;
       const scanner = html5QrCodeRef.current;
       if (scanner) {
-        scanner.stop().catch(() => {});
-        scanner.clear();
+        if (scanner.isScanning) {
+          scanner.stop().then(() => {
+            scanner.clear();
+          }).catch(() => {
+            // Ignore stop errors
+            try { scanner.clear(); } catch(e) {}
+          });
+        } else {
+          try { scanner.clear(); } catch(e) {}
+        }
         html5QrCodeRef.current = null;
       }
     };

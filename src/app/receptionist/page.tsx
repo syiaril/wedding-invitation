@@ -10,10 +10,12 @@ import {
   Users,
   Clock,
   ChevronRight,
+  Camera,
 } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
 import QrScanner from '@/components/ui/QrScanner';
 import CheckInSuccessModal from '@/components/ui/CheckInSuccessModal';
+import GuestPhotoAdmin from '@/components/admin/GuestPhotoAdmin';
 
 // ─── Types ───────────────────────────────────────────────────────
 interface Guest {
@@ -67,7 +69,7 @@ function playCheckInChime() {
 }
 
 // ─── PIN Gate Component ──────────────────────────────────────────
-function PinGate({ onUnlock }: { onUnlock: () => void }) {
+function PinGate({ onUnlock }: { onUnlock: (pin: string) => void }) {
   const [pin, setPin] = useState('');
   const [error, setError] = useState(false);
   const [shaking, setShaking] = useState(false);
@@ -92,7 +94,7 @@ function PinGate({ onUnlock }: { onUnlock: () => void }) {
       const data = await res.json();
 
       if (res.ok && data.success) {
-        onUnlock();
+        onUnlock(pin.trim());
       } else {
         setError(true);
         setShaking(true);
@@ -182,6 +184,8 @@ function PinGate({ onUnlock }: { onUnlock: () => void }) {
 // ─── Main Receptionist Dashboard ─────────────────────────────────
 export default function ReceptionistPage() {
   const [isUnlocked, setIsUnlocked] = useState(false);
+  const [adminPin, setAdminPin] = useState('');
+  const [activeTab, setActiveTab] = useState<'checkin' | 'photos'>('checkin');
   const [scannerPaused, setScannerPaused] = useState(false);
 
   // Check-in success modal
@@ -397,7 +401,7 @@ export default function ReceptionistPage() {
 
   // ─── PIN Gate ──────────────────────────────────────────────
   if (!isUnlocked) {
-    return <PinGate onUnlock={() => setIsUnlocked(true)} />;
+    return <PinGate onUnlock={(pin) => { setAdminPin(pin); setIsUnlocked(true); }} />;
   }
 
   // ─── Dashboard ─────────────────────────────────────────────
@@ -423,6 +427,37 @@ export default function ReceptionistPage() {
         </div>
       </header>
 
+      {/* Tab Navigation */}
+      <div className="sticky top-[57px] z-40 bg-earth-50/95 backdrop-blur-sm border-b border-earth-100">
+        <div className="max-w-lg mx-auto px-4 flex gap-1 py-2">
+          <button
+            onClick={() => setActiveTab('checkin')}
+            className={`flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg text-xs font-medium
+              transition-all duration-200 ${
+                activeTab === 'checkin'
+                  ? 'bg-sage-600 text-white'
+                  : 'bg-white/60 text-sage-600 hover:bg-white'
+              }`}
+          >
+            <UserCheck size={14} />
+            Check-in
+          </button>
+          <button
+            onClick={() => setActiveTab('photos')}
+            className={`flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg text-xs font-medium
+              transition-all duration-200 ${
+                activeTab === 'photos'
+                  ? 'bg-sage-600 text-white'
+                  : 'bg-white/60 text-sage-600 hover:bg-white'
+              }`}
+          >
+            <Camera size={14} />
+            Guest Photos
+          </button>
+        </div>
+      </div>
+
+      {activeTab === 'checkin' ? (
       <div className="max-w-lg mx-auto px-4 py-6 space-y-6">
         {/* Scanner Section */}
         <motion.section
@@ -576,6 +611,11 @@ export default function ReceptionistPage() {
           </div>
         </motion.section>
       </div>
+      ) : (
+      <div className="max-w-lg mx-auto px-4 py-6">
+        <GuestPhotoAdmin adminPin={adminPin} />
+      </div>
+      )}
 
       {/* Success Modal */}
       <CheckInSuccessModal

@@ -6,6 +6,8 @@ import { Send, Users, MessageCircle } from 'lucide-react';
 import AnimatedSection from '@/components/ui/AnimatedSection';
 import Toast from '@/components/ui/Toast';
 import { supabase } from '@/lib/supabase';
+import { useGuestPhotoSession } from '@/hooks/useGuestPhotoSession';
+import { SESSION_STORAGE_KEY } from '@/lib/constants';
 
 interface Wish {
   id: string;
@@ -41,6 +43,16 @@ export default function RSVPSection() {
   const [wishMessage, setWishMessage] = useState('');
   const [wishSubmitting, setWishSubmitting] = useState(false);
   const [wishes, setWishes] = useState<Wish[]>([]);
+  
+  // Session
+  const { session, hasSession, createSession } = useGuestPhotoSession();
+
+  // Sync wishName with session name if available
+  useEffect(() => {
+    if (session?.guestName) {
+      setTimeout(() => setWishName(session.guestName), 0);
+    }
+  }, [session?.guestName]);
 
   // Reactions
   const [reactions, setReactions] = useState<Reaction[]>([]);
@@ -164,30 +176,58 @@ export default function RSVPSection() {
     if (!wishName.trim() || !wishMessage.trim()) return;
 
     setWishSubmitting(true);
-    const { error } = await supabase.from('wishes').insert({
-      name: wishName.trim(),
-      message: wishMessage.trim(),
+    
+    let token = localStorage.getItem(SESSION_STORAGE_KEY);
+    
+    // Create session if it doesn't exist
+    if (!hasSession || !token) {
+      const res = await createSession(wishName.trim());
+      if (!res.success) {
+        showToastMsg(res.error || 'Gagal membuat sesi');
+        setWishSubmitting(false);
+        return;
+      }
+      token = localStorage.getItem(SESSION_STORAGE_KEY);
+    }
+
+    const res = await fetch('/api/wishes', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-session-token': token || ''
+      },
+      body: JSON.stringify({ message: wishMessage.trim() })
     });
+
     setWishSubmitting(false);
 
-    if (!error) {
+    if (res.ok) {
       showToastMsg('Ucapan berhasil dikirim! 💌');
-      setWishName('');
       setWishMessage('');
       fetchWishes();
+    } else {
+      const data = await res.json();
+      showToastMsg(data.error || 'Gagal mengirim ucapan');
     }
   };
 
   // Handle reaction
   const handleReaction = async (emoji: string) => {
-    // If clicking same reaction, do nothing
-    if (userReaction === emoji) return;
+    const token = localStorage.getItem(SESSION_STORAGE_KEY);
+    
+    if (!hasSession || !token) {
+      showToastMsg('Silakan isi Nama di form Ucapan terlebih dahulu untuk bereaksi');
+      return;
+    }
+
+    // If clicking same reaction, do nothing visually or toggle off
+    // Our backend RPC toggles OFF if same emoji is clicked! So let's allow it to toggle off visually
+    const oldEmoji = userReaction;
+    const newEmoji = emoji;
+    const isToggleOff = oldEmoji === newEmoji;
 
     setClickedEmoji(emoji);
     setTimeout(() => setClickedEmoji(null), 600);
-
-    const oldEmoji = userReaction;
-    const newEmoji = emoji;
 
     // Optimistic local update (handling missing emojis safely)
     setReactions((prev) => {
@@ -196,40 +236,35 @@ export default function RSVPSection() {
         nextState.push({ id: Math.random().toString(), emoji: newEmoji, count: 0 });
       }
       return nextState.map((r) => {
-        if (r.emoji === newEmoji) return { ...r, count: (r.count || 0) + 1 };
-        if (r.emoji === oldEmoji) return { ...r, count: Math.max(0, (r.count || 0) - 1) };
+        if (isToggleOff) {
+          if (r.emoji === newEmoji) return { ...r, count: Math.max(0, (r.count || 0) - 1) };
+        } else {
+          if (r.emoji === newEmoji) return { ...r, count: (r.count || 0) + 1 };
+          if (r.emoji === oldEmoji) return { ...r, count: Math.max(0, (r.count || 0) - 1) };
+        }
         return r;
       });
     });
 
-    setHasReacted(true);
-    setUserReaction(newEmoji);
-    localStorage.setItem('wedding_reaction', newEmoji);
-
-    // Supabase updates
-    if (oldEmoji) {
-      const oldReaction = reactions.find(r => r.emoji === oldEmoji);
-      if (oldReaction) {
-        await supabase
-          .from('reactions')
-          .update({ count: Math.max(0, oldReaction.count - 1) })
-          .eq('emoji', oldEmoji);
-      }
-    }
-
-    const currentNewReaction = reactions.find(r => r.emoji === newEmoji);
-    if (currentNewReaction) {
-      // Exists in DB, update
-      await supabase
-        .from('reactions')
-        .update({ count: (currentNewReaction.count || 0) + 1 })
-        .eq('emoji', newEmoji);
+    if (isToggleOff) {
+      setHasReacted(false);
+      setUserReaction(null);
+      localStorage.removeItem('wedding_reaction');
     } else {
-      // First time this emoji is clicked ever, insert it
-      await supabase
-        .from('reactions')
-        .insert({ emoji: newEmoji, count: 1 });
+      setHasReacted(true);
+      setUserReaction(newEmoji);
+      localStorage.setItem('wedding_reaction', newEmoji);
     }
+
+    // Supabase updates via API
+    await fetch('/api/reactions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-session-token': token
+      },
+      body: JSON.stringify({ emoji: newEmoji })
+    });
   };
 
   const formatDate = (dateStr: string) => {
@@ -380,10 +415,12 @@ export default function RSVPSection() {
                 onChange={(e) => setWishName(e.target.value)}
                 required
                 maxLength={50}
-                className="w-full px-4 py-3 rounded-xl bg-sage-50 border border-sage-200
-                  text-sage-800 text-sm placeholder:text-sage-400
-                  focus:outline-none focus:ring-2 focus:ring-sage-400/50 focus:border-sage-400
-                  transition-all duration-200"
+                readOnly={hasSession}
+                className={`w-full px-4 py-3 rounded-xl border text-sm transition-all duration-200
+                  ${hasSession 
+                    ? 'bg-sage-100/50 border-sage-200 text-sage-600 cursor-not-allowed' 
+                    : 'bg-sage-50 border-sage-200 text-sage-800 placeholder:text-sage-400 focus:outline-none focus:ring-2 focus:ring-sage-400/50 focus:border-sage-400'
+                  }`}
               />
               <div className="relative">
                 <textarea
