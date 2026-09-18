@@ -121,11 +121,11 @@ function PinGate({ onUnlock }: { onUnlock: (pin: string) => void }) {
         className="w-full max-w-xs"
       >
         <div className="text-center mb-8">
-          <div className="w-14 h-14 rounded-2xl bg-sage-100 flex items-center justify-center mx-auto mb-4">
-            <Shield size={24} className="text-sage-600" />
+          <div className="w-14 h-14 rounded-2xl bg-crimson-100 flex items-center justify-center mx-auto mb-4">
+            <Shield size={24} className="text-crimson-600" />
           </div>
-          <h1 className="font-serif text-sage-800 text-xl mb-1">Receptionist Access</h1>
-          <p className="text-sage-400 text-sm">Masukkan PIN untuk melanjutkan</p>
+          <h1 className="font-serif text-crimson-800 text-xl mb-1">Receptionist Access</h1>
+          <p className="text-crimson-400 text-sm">Masukkan PIN untuk melanjutkan</p>
         </div>
 
         <form onSubmit={handleSubmit}>
@@ -142,12 +142,12 @@ function PinGate({ onUnlock }: { onUnlock: (pin: string) => void }) {
               onChange={(e) => setPin(e.target.value)}
               placeholder="• • • •"
               className={`w-full px-6 py-4 rounded-xl bg-white border text-center
-                text-lg tracking-[0.5em] font-medium text-sage-800
-                placeholder:text-sage-300 placeholder:tracking-[0.3em]
+                text-lg tracking-[0.5em] font-medium text-crimson-800
+                placeholder:text-crimson-300 placeholder:tracking-[0.3em]
                 focus:outline-none focus:ring-2 transition-all duration-200
                 ${error
                   ? 'border-red-300 focus:ring-red-200/50'
-                  : 'border-sage-200 focus:ring-sage-300/50 focus:border-sage-400'
+                  : 'border-crimson-200 focus:ring-crimson-300/50 focus:border-crimson-400'
                 }`}
             />
           </motion.div>
@@ -169,8 +169,8 @@ function PinGate({ onUnlock }: { onUnlock: (pin: string) => void }) {
             type="submit"
             disabled={isVerifying}
             className="w-full mt-4 flex items-center justify-center gap-2 px-6 py-3.5
-              rounded-xl bg-sage-600 text-white text-sm font-medium tracking-wider
-              hover:bg-sage-700 active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed transition-all duration-200"
+              rounded-xl bg-crimson-600 text-white text-sm font-medium tracking-wider
+              hover:bg-crimson-700 active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed transition-all duration-200"
           >
             <LogIn size={16} />
             {isVerifying ? 'Memverifikasi...' : 'Masuk'}
@@ -411,18 +411,18 @@ export default function ReceptionistPage() {
       <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-earth-100">
         <div className="max-w-lg mx-auto px-4 py-3 flex items-center justify-between">
           <div>
-            <h1 className="font-serif text-sage-800 text-lg font-semibold">
+            <h1 className="font-serif text-crimson-800 text-lg font-semibold">
               Receptionist
             </h1>
-            <p className="text-sage-400 text-[11px] tracking-wide">
+            <p className="text-crimson-400 text-[11px] tracking-wide">
               Asmunandar & Salasatin — 18 Okt 2026
             </p>
           </div>
-          <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-sage-50 border border-sage-100">
-            <Users size={14} className="text-sage-500" />
-            <span className="text-sage-700 text-sm font-semibold">{checkedInCount}</span>
-            <span className="text-sage-400 text-sm">/</span>
-            <span className="text-sage-400 text-sm">{totalGuests}</span>
+          <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-crimson-50 border border-crimson-100">
+            <Users size={14} className="text-crimson-500" />
+            <span className="text-crimson-700 text-sm font-semibold">{checkedInCount}</span>
+            <span className="text-crimson-400 text-sm">/</span>
+            <span className="text-crimson-400 text-sm">{totalGuests}</span>
           </div>
         </div>
       </header>
@@ -435,8 +435,8 @@ export default function ReceptionistPage() {
             className={`flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg text-xs font-medium
               transition-all duration-200 ${
                 activeTab === 'checkin'
-                  ? 'bg-sage-600 text-white'
-                  : 'bg-white/60 text-sage-600 hover:bg-white'
+                  ? 'bg-crimson-600 text-white'
+                  : 'bg-white/60 text-crimson-600 hover:bg-white'
               }`}
           >
             <UserCheck size={14} />
@@ -447,8 +447,8 @@ export default function ReceptionistPage() {
             className={`flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg text-xs font-medium
               transition-all duration-200 ${
                 activeTab === 'photos'
-                  ? 'bg-sage-600 text-white'
-                  : 'bg-white/60 text-sage-600 hover:bg-white'
+                  ? 'bg-crimson-600 text-white'
+                  : 'bg-white/60 text-crimson-600 hover:bg-white'
               }`}
           >
             <Camera size={14} />
@@ -466,7 +466,7 @@ export default function ReceptionistPage() {
           transition={{ duration: 0.5 }}
         >
           <div className="text-center mb-4">
-            <p className="text-sage-500 text-xs tracking-wide uppercase font-medium">
+            <p className="text-crimson-500 text-xs tracking-wide uppercase font-medium">
               Scan QR Code Tamu
             </p>
           </div>
@@ -481,8 +481,8 @@ export default function ReceptionistPage() {
         >
           <div className="glass-card p-4">
             <div className="flex items-center gap-2 mb-3">
-              <Search size={15} className="text-sage-500" />
-              <h2 className="text-sage-700 text-sm font-semibold">Cari Manual</h2>
+              <Search size={15} className="text-crimson-500" />
+              <h2 className="text-crimson-700 text-sm font-semibold">Cari Manual</h2>
             </div>
 
             <div className="flex gap-2">
@@ -495,16 +495,16 @@ export default function ReceptionistPage() {
                   if (!e.target.value.trim()) setSearchResults([]);
                 }}
                 onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
-                className="flex-1 px-4 py-2.5 rounded-xl bg-sage-50/80 border border-sage-200
-                  text-sage-800 text-sm placeholder:text-sage-400
-                  focus:outline-none focus:ring-2 focus:ring-sage-300/50 focus:border-sage-400
+                className="flex-1 px-4 py-2.5 rounded-xl bg-crimson-50/80 border border-crimson-200
+                  text-crimson-800 text-sm placeholder:text-crimson-400
+                  focus:outline-none focus:ring-2 focus:ring-crimson-300/50 focus:border-crimson-400
                   transition-all duration-200"
               />
               <button
                 onClick={handleSearch}
                 disabled={isSearching || !searchQuery.trim()}
-                className="px-4 py-2.5 rounded-xl bg-sage-600 text-white text-sm font-medium
-                  hover:bg-sage-700 disabled:opacity-50 disabled:cursor-not-allowed
+                className="px-4 py-2.5 rounded-xl bg-crimson-600 text-white text-sm font-medium
+                  hover:bg-crimson-700 disabled:opacity-50 disabled:cursor-not-allowed
                   active:scale-[0.97] transition-all duration-200"
               >
                 {isSearching ? '...' : 'Cari'}
@@ -526,13 +526,13 @@ export default function ReceptionistPage() {
                       initial={{ opacity: 0, x: -8 }}
                       animate={{ opacity: 1, x: 0 }}
                       className="flex items-center justify-between p-3 rounded-xl
-                        bg-sage-50/60 border border-sage-100"
+                        bg-crimson-50/60 border border-crimson-100"
                     >
                       <div>
-                        <p className="text-sage-800 text-sm font-medium">
+                        <p className="text-crimson-800 text-sm font-medium">
                           {guest.nama_tamu}
                         </p>
-                        <p className="text-sage-400 text-[11px]">{guest.kategori}</p>
+                        <p className="text-crimson-400 text-[11px]">{guest.kategori}</p>
                       </div>
                       {guest.status_kehadiran ? (
                         <span className="text-emerald-500 text-xs font-medium flex items-center gap-1">
@@ -542,8 +542,8 @@ export default function ReceptionistPage() {
                       ) : (
                         <button
                           onClick={() => handleManualCheckIn(guest.kode_tiket)}
-                          className="px-3 py-1.5 rounded-lg bg-sage-600 text-white text-xs
-                            font-medium hover:bg-sage-700 active:scale-[0.97] transition-all duration-200"
+                          className="px-3 py-1.5 rounded-lg bg-crimson-600 text-white text-xs
+                            font-medium hover:bg-crimson-700 active:scale-[0.97] transition-all duration-200"
                         >
                           Check-in
                         </button>
@@ -565,14 +565,14 @@ export default function ReceptionistPage() {
           <div className="glass-card p-4">
             <div className="flex items-center justify-between mb-3">
               <div className="flex items-center gap-2">
-                <Clock size={15} className="text-sage-500" />
-                <h2 className="text-sage-700 text-sm font-semibold">Check-in Terbaru</h2>
+                <Clock size={15} className="text-crimson-500" />
+                <h2 className="text-crimson-700 text-sm font-semibold">Check-in Terbaru</h2>
               </div>
-              <span className="text-sage-400 text-[11px]">{recentCheckins.length} tamu</span>
+              <span className="text-crimson-400 text-[11px]">{recentCheckins.length} tamu</span>
             </div>
 
             {recentCheckins.length === 0 ? (
-              <p className="text-sage-400 text-sm text-center py-6">
+              <p className="text-crimson-400 text-sm text-center py-6">
                 Belum ada tamu yang check-in.
               </p>
             ) : (
@@ -584,7 +584,7 @@ export default function ReceptionistPage() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.05 }}
                     className="flex items-center justify-between py-2.5 px-3 rounded-xl
-                      bg-sage-50/60 border border-sage-100"
+                      bg-crimson-50/60 border border-crimson-100"
                   >
                     <div className="flex items-center gap-3">
                       <div className="w-8 h-8 rounded-full bg-emerald-50 border border-emerald-100
@@ -592,13 +592,13 @@ export default function ReceptionistPage() {
                         <UserCheck size={14} className="text-emerald-500" />
                       </div>
                       <div>
-                        <p className="text-sage-800 text-sm font-medium">
+                        <p className="text-crimson-800 text-sm font-medium">
                           {guest.nama_tamu}
                         </p>
-                        <p className="text-sage-400 text-[11px]">{guest.kategori}</p>
+                        <p className="text-crimson-400 text-[11px]">{guest.kategori}</p>
                       </div>
                     </div>
-                    <div className="flex items-center gap-1 text-sage-400">
+                    <div className="flex items-center gap-1 text-crimson-400">
                       <span className="text-[11px]">
                         {formatTime(guest.waktu_check_in)}
                       </span>
@@ -639,7 +639,7 @@ export default function ReceptionistPage() {
                 ? 'bg-red-600 text-white'
                 : toastType === 'warning'
                   ? 'bg-amber-500 text-white'
-                  : 'bg-sage-700 text-white'
+                  : 'bg-crimson-700 text-white'
               }`}
           >
             {toastMessage}

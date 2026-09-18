@@ -37,7 +37,7 @@ export default function HeroSection() {
         sizes="100vw"
       />
       {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-sage-900/50 via-sage-800/40 to-sage-900/70" />
+      <div className="absolute inset-0 bg-gradient-to-b from-crimson-900/50 via-crimson-800/40 to-crimson-900/70" />
 
       {/* Top decorative line */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-20 bg-gradient-to-b from-transparent via-gold-400/50 to-transparent z-10" />

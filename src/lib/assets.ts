@@ -20,10 +20,10 @@ function getStorageUrl(path: string): string {
 export const MUSIC_URL = getStorageUrl('music/background.mp3');
 
 // Hero section background
-export const HERO_BG = getStorageUrl('images/hero.jpg');
+export const HERO_BG = getStorageUrl('images/gallery/prewed-merah-3.webp');
 
 // Door/Cover & Closing section background  
-export const COVER_BG = getStorageUrl('images/cover.jpg');
+export const COVER_BG = getStorageUrl('images/gallery/prewed-merah-1.webp');
 
 // Couple photo (Opening section)
 export const COUPLE_PHOTO = getStorageUrl('images/couple.webp');

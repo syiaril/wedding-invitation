@@ -20,14 +20,14 @@ export default function OpeningSection() {
       <div className="relative z-10 max-w-lg mx-auto text-center">
         {/* Greeting */}
         <AnimatedSection>
-          <p className="text-sage-600 font-serif text-lg mb-1">
+          <p className="text-crimson-600 font-serif text-lg mb-1">
             بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم
           </p>
-          <p className="text-sage-500 text-sm mb-6">Bismillahirrahmanirrahim</p>
+          <p className="text-crimson-500 text-sm mb-6">Bismillahirrahmanirrahim</p>
         </AnimatedSection>
 
         <AnimatedSection delay={0.2}>
-          <p className="text-sage-700 font-serif text-xl mb-2">
+          <p className="text-crimson-700 font-serif text-xl mb-2">
             Assalamualaikum Warahmatullahi Wabarakatuh
           </p>
         </AnimatedSection>
@@ -35,7 +35,7 @@ export default function OpeningSection() {
         {/* Quran Verse */}
         <AnimatedSection delay={0.3}>
           <div className="my-8 px-4 py-6 glass-card">
-            <p className="text-sage-700 font-serif italic text-sm leading-relaxed mb-3">
+            <p className="text-crimson-700 font-serif italic text-sm leading-relaxed mb-3">
               &ldquo;Wahai manusia! Bertakwalah kepada Tuhanmu yang telah menciptakan
               kamu dari diri yang satu (Adam), dan (Allah) menciptakan pasangannya (Hawa)
               dari (diri)-nya; dan dari keduanya Allah memperkembangbiakkan laki-laki dan
@@ -51,7 +51,7 @@ export default function OpeningSection() {
         <AnimatedSection delay={0.4}>
           <div className="my-10 flex justify-center">
             <div className="w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden
-              border-4 border-gold-400/40 shadow-xl shadow-sage-200/50 relative">
+              border-4 border-gold-400/40 shadow-xl shadow-crimson-200/50 relative">
               <Image
                 src={imgSrc}
                 alt="Asmunandar & Salasatin"
@@ -77,15 +77,15 @@ export default function OpeningSection() {
             <div className="text-center">
               <div className="text-gold-400 text-2xl mb-2">♂</div>
               <h3
-                className="text-3xl text-sage-800 mb-2"
+                className="text-3xl text-crimson-800 mb-2"
                 style={{ fontFamily: 'Great Vibes, cursive' }}
               >
                 M. Asmunandar, S.Ak
               </h3>
-              <p className="text-sage-600 text-sm font-serif mb-1">
+              <p className="text-crimson-600 text-sm font-serif mb-1">
                 Putra dari
               </p>
-              <p className="text-sage-700 text-sm">
+              <p className="text-crimson-700 text-sm">
                 Bpk. Darip & Ibu Asliha
               </p>
             </div>
@@ -96,15 +96,15 @@ export default function OpeningSection() {
             <div className="text-center">
               <div className="text-gold-400 text-2xl mb-2">♀</div>
               <h3
-                className="text-3xl text-sage-800 mb-2"
+                className="text-3xl text-crimson-800 mb-2"
                 style={{ fontFamily: 'Great Vibes, cursive' }}
               >
                 Salasatin Ismiah, S.Si
               </h3>
-              <p className="text-sage-600 text-sm font-serif mb-1">
+              <p className="text-crimson-600 text-sm font-serif mb-1">
                 Putri dari
               </p>
-              <p className="text-sage-700 text-sm">
+              <p className="text-crimson-700 text-sm">
                 Bpk. Sa&apos;roni &amp; Ibu Suminah
               </p>
             </div>

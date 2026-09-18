@@ -13,13 +13,13 @@ interface GuestTicketProps {
 
 const categoryStyles: Record<string, string> = {
   vip: 'bg-gold-300/20 text-gold-600 border-gold-300/40',
-  keluarga: 'bg-dusty-100 text-dusty-500 border-dusty-200',
-  teman: 'bg-sage-100 text-sage-600 border-sage-200',
+  keluarga: 'bg-crimson-100 text-crimson-500 border-crimson-200',
+  teman: 'bg-crimson-100 text-crimson-600 border-crimson-200',
 };
 
 function getCategoryStyle(category: string): string {
   const key = category.toLowerCase();
-  return categoryStyles[key] || 'bg-sage-100 text-sage-600 border-sage-200';
+  return categoryStyles[key] || 'bg-crimson-100 text-crimson-600 border-crimson-200';
 }
 
 export default function GuestTicket({ guestName, category, kodeTiket }: GuestTicketProps) {
@@ -32,14 +32,14 @@ export default function GuestTicket({ guestName, category, kodeTiket }: GuestTic
     >
       <div className="relative bg-white rounded-2xl shadow-lg overflow-hidden border border-earth-200/60">
         {/* Top decorative accent */}
-        <div className="h-1.5 bg-gradient-to-r from-sage-300 via-gold-400 to-sage-300" />
+        <div className="h-1.5 bg-gradient-to-r from-crimson-300 via-gold-400 to-crimson-300" />
 
         {/* Header */}
         <div className="px-6 pt-6 pb-4 text-center">
           <p className="font-script text-gold-500 text-2xl leading-tight mb-1">
             The Wedding of
           </p>
-          <h2 className="font-serif text-sage-800 text-lg tracking-wide">
+          <h2 className="font-serif text-crimson-800 text-lg tracking-wide">
             Asmunandar & Salasatin
           </h2>
           <p className="text-earth-400 text-[11px] tracking-[0.2em] uppercase mt-1.5">
@@ -52,7 +52,7 @@ export default function GuestTicket({ guestName, category, kodeTiket }: GuestTic
           <p className="text-earth-400 text-[10px] tracking-[0.25em] uppercase mb-1.5">
             Kepada Yth.
           </p>
-          <h3 className="font-serif text-sage-900 text-xl md:text-2xl font-semibold leading-snug">
+          <h3 className="font-serif text-crimson-900 text-xl md:text-2xl font-semibold leading-snug">
             {guestName}
           </h3>
           <div className="mt-2.5 inline-flex items-center gap-1.5">
@@ -93,7 +93,7 @@ export default function GuestTicket({ guestName, category, kodeTiket }: GuestTic
               size={160}
               level="M"
               bgColor="#FFFFFF"
-              fgColor="#3F4E38"
+              fgColor="#3D0A0E"
             />
           </motion.div>
 

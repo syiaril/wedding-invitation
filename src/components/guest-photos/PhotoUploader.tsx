@@ -158,7 +158,7 @@ export default function PhotoUploader({
   if (!canUpload && state === 'idle') {
     return (
       <div className="text-center py-4">
-        <p className="text-sage-500 text-sm">
+        <p className="text-crimson-500 text-sm">
           Kamu sudah mencapai batas maksimal foto. 🎉
         </p>
       </div>
@@ -179,12 +179,12 @@ export default function PhotoUploader({
             <button
               onClick={() => cameraInputRef.current?.click()}
               className="flex flex-col items-center gap-2 p-5 rounded-xl
-                bg-sage-50 border border-sage-200
-                hover:bg-sage-100 hover:border-sage-300
+                bg-crimson-50 border border-crimson-200
+                hover:bg-crimson-100 hover:border-crimson-300
                 active:scale-[0.97] transition-all duration-200"
             >
-              <Camera size={24} className="text-sage-600" />
-              <span className="text-sage-700 text-xs font-medium">
+              <Camera size={24} className="text-crimson-600" />
+              <span className="text-crimson-700 text-xs font-medium">
                 Kamera
               </span>
             </button>
@@ -192,12 +192,12 @@ export default function PhotoUploader({
             <button
               onClick={() => galleryInputRef.current?.click()}
               className="flex flex-col items-center gap-2 p-5 rounded-xl
-                bg-sage-50 border border-sage-200
-                hover:bg-sage-100 hover:border-sage-300
+                bg-crimson-50 border border-crimson-200
+                hover:bg-crimson-100 hover:border-crimson-300
                 active:scale-[0.97] transition-all duration-200"
             >
-              <ImagePlus size={24} className="text-sage-600" />
-              <span className="text-sage-700 text-xs font-medium">
+              <ImagePlus size={24} className="text-crimson-600" />
+              <span className="text-crimson-700 text-xs font-medium">
                 Galeri
               </span>
             </button>
@@ -221,7 +221,7 @@ export default function PhotoUploader({
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.8 }}
-                    className="relative aspect-square rounded-xl overflow-hidden bg-sage-100 border border-sage-200"
+                    className="relative aspect-square rounded-xl overflow-hidden bg-crimson-100 border border-crimson-200"
                   >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
@@ -248,18 +248,18 @@ export default function PhotoUploader({
                   <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    className="aspect-square flex flex-col gap-2 rounded-xl border-2 border-dashed border-sage-300 bg-sage-50 hover:bg-sage-100 transition-colors"
+                    className="aspect-square flex flex-col gap-2 rounded-xl border-2 border-dashed border-crimson-300 bg-crimson-50 hover:bg-crimson-100 transition-colors"
                   >
                     <button
                       onClick={() => galleryInputRef.current?.click()}
-                      className="flex-1 flex flex-col items-center justify-center text-sage-600 border-b border-sage-200/50"
+                      className="flex-1 flex flex-col items-center justify-center text-crimson-600 border-b border-crimson-200/50"
                     >
                       <ImagePlus size={20} className="mb-1" />
                       <span className="text-[10px] font-medium">Galeri</span>
                     </button>
                     <button
                       onClick={() => cameraInputRef.current?.click()}
-                      className="flex-1 flex flex-col items-center justify-center text-sage-600"
+                      className="flex-1 flex flex-col items-center justify-center text-crimson-600"
                     >
                       <Camera size={20} className="mb-1" />
                       <span className="text-[10px] font-medium">Kamera</span>
@@ -271,14 +271,14 @@ export default function PhotoUploader({
 
             {/* Uploading Overlay / Progress */}
             {state === 'uploading' && (
-              <div className="bg-sage-100/50 border border-sage-200 rounded-xl p-4 flex flex-col items-center justify-center gap-3">
-                <Loader2 size={24} className="text-sage-600 animate-spin" />
-                <p className="text-sage-700 text-sm font-medium">
+              <div className="bg-crimson-100/50 border border-crimson-200 rounded-xl p-4 flex flex-col items-center justify-center gap-3">
+                <Loader2 size={24} className="text-crimson-600 animate-spin" />
+                <p className="text-crimson-700 text-sm font-medium">
                   {uploadStatusText}
                 </p>
-                <div className="w-full h-1.5 bg-sage-200 rounded-full overflow-hidden">
+                <div className="w-full h-1.5 bg-crimson-200 rounded-full overflow-hidden">
                   <motion.div
-                    className="h-full bg-sage-500 rounded-full"
+                    className="h-full bg-crimson-500 rounded-full"
                     initial={{ width: '0%' }}
                     animate={{ width: `${uploadProgress}%` }}
                     transition={{ duration: 0.3 }}
@@ -292,13 +292,13 @@ export default function PhotoUploader({
               <div className="flex gap-3">
                 <button
                   onClick={clearAll}
-                  className="flex-1 px-4 py-3 rounded-xl bg-white border border-sage-200 text-sage-600 text-sm font-medium hover:bg-sage-50 active:scale-[0.98] transition-all"
+                  className="flex-1 px-4 py-3 rounded-xl bg-white border border-crimson-200 text-crimson-600 text-sm font-medium hover:bg-crimson-50 active:scale-[0.98] transition-all"
                 >
                   Batal
                 </button>
                 <button
                   onClick={handleUpload}
-                  className="flex-[2] flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-sage-600 text-white text-sm font-medium hover:bg-sage-700 active:scale-[0.98] transition-all shadow-sm"
+                  className="flex-[2] flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-crimson-600 text-white text-sm font-medium hover:bg-crimson-700 active:scale-[0.98] transition-all shadow-sm"
                 >
                   <Send size={16} />
                   Kirim ({selectedPhotos.length} Foto)

@@ -78,7 +78,7 @@ export default function TicketBottomSheet() {
           animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 1.5, type: 'spring', stiffness: 260, damping: 20 }}
           onClick={() => setIsOpen(true)}
-          className="flex items-center gap-2 px-5 py-2.5 rounded-full backdrop-blur-sm bg-white/60 border border-white/20 shadow-xl text-sage-900 font-medium hover:scale-105 transition-transform cursor-pointer"
+          className="flex items-center gap-2 px-5 py-2.5 rounded-full backdrop-blur-sm bg-white/60 border border-white/20 shadow-xl text-crimson-900 font-medium hover:scale-105 transition-transform cursor-pointer"
           aria-label="Tampilkan tiket undangan"
         >
           <Ticket size={18} className="text-gold-500" />

@@ -36,7 +36,7 @@ export default function DoorSection() {
             sizes="100vw"
           />
           {/* Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-b from-sage-900/55 via-sage-900/40 to-sage-900/70" />
+          <div className="absolute inset-0 bg-gradient-to-b from-crimson-900/55 via-crimson-900/40 to-crimson-900/70" />
 
           {/* Content */}
           <div className="relative z-10 flex flex-col items-center">

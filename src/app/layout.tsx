@@ -22,8 +22,7 @@ const lato = Lato({
   display: "swap",
 });
 
-const OG_IMAGE_URL = "https://phzbfeoxgwqfmulacpzn.supabase.co/storage/v1/object/public/wedding-assets/images/og-cover.jpg";
-const FAVICON_URL = "https://phzbfeoxgwqfmulacpzn.supabase.co/storage/v1/object/public/wedding-assets/images/favicon.ico";
+const OG_IMAGE_URL = "https://phzbfeoxgwqfmulacpzn.supabase.co/storage/v1/object/public/wedding-assets/images/gallery/prewed-merah-1.webp";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://wedding.mhmdsyiaril.my.id"),
@@ -36,9 +35,6 @@ export const metadata: Metadata = {
       "Kami mengundang Anda untuk merayakan momen bahagia pernikahan Asmunandar & Salasatin.",
     type: "website",
     images: [OG_IMAGE_URL],
-  },
-  icons: {
-    icon: FAVICON_URL,
   },
 };
 

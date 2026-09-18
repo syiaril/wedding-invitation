@@ -36,14 +36,14 @@ export default function GallerySection() {
   }, []);
 
   return (
-    <section id="gallery" className="relative py-20 px-6 bg-sage-50 overflow-hidden">
+    <section id="gallery" className="relative py-20 px-6 bg-crimson-50 overflow-hidden">
       <div className="max-w-2xl mx-auto">
         <AnimatedSection>
           <div className="text-center mb-12">
             <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-2">
               Galeri Foto
             </p>
-            <h2 className="text-3xl md:text-4xl font-serif text-sage-800 mb-4">
+            <h2 className="text-3xl md:text-4xl font-serif text-crimson-800 mb-4">
               Momen Bahagia
             </h2>
             <div className="ornament-divider">
@@ -55,25 +55,19 @@ export default function GallerySection() {
         </AnimatedSection>
 
         {/* Masonry Grid */}
-        <div className="columns-2 md:columns-3 gap-3 space-y-3">
+        <div className="columns-2 md:columns-3 gap-3">
           {galleryImages.map((image, index) => (
             <AnimatedSection key={index} delay={0.1 + index * 0.08}>
               <div
                 className="break-inside-avoid cursor-pointer group overflow-hidden rounded-xl
-                  shadow-md hover:shadow-xl transition-shadow duration-300 relative"
+                  shadow-md hover:shadow-xl transition-shadow duration-300 mb-3"
                 onClick={() => openLightbox(index)}
-                style={{
-                  aspectRatio: index % 3 === 0 ? '3/4' : index % 3 === 1 ? '1/1' : '4/3',
-                }}
               >
-                <Image
+                <img
                   src={image.src}
                   alt={image.alt}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  sizes="(max-width: 768px) 50vw, 33vw"
+                  className="w-full h-auto block group-hover:scale-105 transition-transform duration-500"
                   loading="lazy"
-                  unoptimized
                 />
               </div>
             </AnimatedSection>

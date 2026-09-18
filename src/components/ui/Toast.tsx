@@ -18,7 +18,7 @@ export default function Toast({ message, isVisible }: ToastProps) {
           exit={{ opacity: 0, y: 20, scale: 0.9 }}
           transition={{ duration: 0.3 }}
           className="fixed bottom-24 left-1/2 -translate-x-1/2 z-[100]
-            bg-sage-700 text-white px-5 py-3 rounded-full shadow-xl
+            bg-crimson-700 text-white px-5 py-3 rounded-full shadow-xl
             flex items-center gap-2 text-sm font-medium"
         >
           <Check size={16} />

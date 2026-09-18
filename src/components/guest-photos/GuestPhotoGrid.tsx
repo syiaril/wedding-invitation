@@ -49,9 +49,9 @@ export default function GuestPhotoGrid({
   if (isLoading) {
     return (
       <div className="text-center py-6">
-        <div className="w-8 h-8 border-2 border-sage-300 border-t-sage-600
+        <div className="w-8 h-8 border-2 border-crimson-300 border-t-crimson-600
           rounded-full animate-spin mx-auto mb-3" />
-        <p className="text-sage-400 text-xs">Memuat kenanganmu...</p>
+        <p className="text-crimson-400 text-xs">Memuat kenanganmu...</p>
       </div>
     );
   }
@@ -59,7 +59,7 @@ export default function GuestPhotoGrid({
   if (photos.length === 0) {
     return (
       <div className="text-center py-6">
-        <p className="text-sage-400 text-sm">
+        <p className="text-crimson-400 text-sm">
           Belum ada foto. Mulai abadikan momenmu! 📸
         </p>
       </div>
@@ -68,7 +68,7 @@ export default function GuestPhotoGrid({
 
   return (
     <div>
-      <h4 className="text-sage-700 text-xs font-semibold tracking-wide uppercase mb-3">
+      <h4 className="text-crimson-700 text-xs font-semibold tracking-wide uppercase mb-3">
         Foto Saya
       </h4>
       <div className="grid grid-cols-3 gap-2">
@@ -83,7 +83,7 @@ export default function GuestPhotoGrid({
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: index * 0.05 }}
               onClick={() => setLightboxIndex(index)}
-              className="relative aspect-square rounded-lg overflow-hidden bg-sage-100 group cursor-pointer"
+              className="relative aspect-square rounded-lg overflow-hidden bg-crimson-100 group cursor-pointer"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img

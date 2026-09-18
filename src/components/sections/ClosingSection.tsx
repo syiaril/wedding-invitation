@@ -33,7 +33,7 @@ export default function ClosingSection() {
         loading="lazy"
       />
       {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-sage-900/80 to-sage-900/90" />
+      <div className="absolute inset-0 bg-gradient-to-b from-crimson-900/80 to-crimson-900/90" />
 
       <div className="relative z-10 max-w-lg mx-auto text-center">
         <AnimatedSection>
@@ -56,7 +56,7 @@ export default function ClosingSection() {
             Asmunandar
           </h2>
           <div className="flex justify-center my-2">
-            <Heart size={20} className="text-dusty-300" fill="currentColor" />
+            <Heart size={20} className="text-crimson-300" fill="currentColor" />
           </div>
           <h2
             className="text-5xl md:text-6xl text-white mb-8"

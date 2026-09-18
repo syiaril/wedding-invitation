@@ -31,7 +31,7 @@ export default function LocationSection() {
             <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-2">
               Lokasi
             </p>
-            <h2 className="text-3xl md:text-4xl font-serif text-sage-800 mb-4">
+            <h2 className="text-3xl md:text-4xl font-serif text-crimson-800 mb-4">
               Peta Lokasi
             </h2>
             <div className="ornament-divider">
@@ -60,14 +60,14 @@ export default function LocationSection() {
 
                 {/* Location Info */}
                 <div className="p-6 text-center">
-                  <div className="flex items-center justify-center gap-2 text-sage-700 mb-1">
+                  <div className="flex items-center justify-center gap-2 text-crimson-700 mb-1">
                     <MapPin size={18} className="text-gold-500" />
                     <h3 className="font-serif text-lg">{loc.title}</h3>
                   </div>
                   <p className="text-gold-500 text-xs font-medium tracking-wider uppercase mb-2">
                     {loc.subtitle}
                   </p>
-                  <p className="text-sage-500 text-sm mb-5">
+                  <p className="text-crimson-500 text-sm mb-5">
                     {loc.address}
                   </p>
                   <a
@@ -75,8 +75,8 @@ export default function LocationSection() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full
-                      bg-sage-600 text-white text-xs font-medium tracking-wider uppercase
-                      hover:bg-sage-700 transition-colors duration-300"
+                      bg-crimson-600 text-white text-xs font-medium tracking-wider uppercase
+                      hover:bg-crimson-700 transition-colors duration-300"
                   >
                     <Navigation size={14} />
                     Buka di Google Maps

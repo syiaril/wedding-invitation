@@ -36,7 +36,7 @@ export default function GuestPhotoSection() {
             <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-2">
               Bagikan Kenanganmu
             </p>
-            <h2 className="text-3xl md:text-4xl font-serif text-sage-800 mb-4">
+            <h2 className="text-3xl md:text-4xl font-serif text-crimson-800 mb-4">
               Abadikan Momen
             </h2>
             <div className="ornament-divider">
@@ -53,10 +53,10 @@ export default function GuestPhotoSection() {
             {isLoading ? (
               <div className="text-center py-8">
                 <div
-                  className="w-8 h-8 border-2 border-sage-300 border-t-sage-600
+                  className="w-8 h-8 border-2 border-crimson-300 border-t-crimson-600
                     rounded-full animate-spin mx-auto mb-3"
                 />
-                <p className="text-sage-400 text-xs">
+                <p className="text-crimson-400 text-xs">
                   Memuat sesi foto...
                 </p>
               </div>

@@ -11,7 +11,7 @@ const nextConfig = {
   },
   // Fix for cross-origin HMR warnings when accessing via local network
   // allowedDevOrigins: ['192.168.1.3', '192.168.0.3'],
-  allowedDevOrigins: ['192.168.65.106'],
+  allowedDevOrigins: ['192.168.0.5'],
 };
 
 export default nextConfig;

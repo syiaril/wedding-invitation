@@ -219,8 +219,8 @@ export default function GuestPhotoAdmin({ adminPin }: GuestPhotoAdminProps) {
             className={`px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap
               transition-all duration-200 ${
                 filter === key
-                  ? 'bg-sage-600 text-white'
-                  : 'bg-sage-50 text-sage-600 border border-sage-200 hover:bg-sage-100'
+                  ? 'bg-crimson-600 text-white'
+                  : 'bg-crimson-50 text-crimson-600 border border-crimson-200 hover:bg-crimson-100'
               }`}
           >
             {key === 'all' ? (
@@ -236,20 +236,20 @@ export default function GuestPhotoAdmin({ adminPin }: GuestPhotoAdminProps) {
       </div>
 
       {/* Photo count */}
-      <p className="text-sage-400 text-[11px]">
+      <p className="text-crimson-400 text-[11px]">
         {photos.length} foto{filter !== 'all' ? ` (${filter})` : ''}
       </p>
 
       {/* Photo list */}
       {isLoading ? (
         <div className="text-center py-8">
-          <Loader2 size={24} className="text-sage-400 animate-spin mx-auto mb-2" />
-          <p className="text-sage-400 text-sm">Memuat foto...</p>
+          <Loader2 size={24} className="text-crimson-400 animate-spin mx-auto mb-2" />
+          <p className="text-crimson-400 text-sm">Memuat foto...</p>
         </div>
       ) : photos.length === 0 ? (
         <div className="text-center py-8">
-          <ImageIcon size={32} className="text-sage-300 mx-auto mb-2" />
-          <p className="text-sage-400 text-sm">Belum ada foto.</p>
+          <ImageIcon size={32} className="text-crimson-300 mx-auto mb-2" />
+          <p className="text-crimson-400 text-sm">Belum ada foto.</p>
         </div>
       ) : (
         <div className="space-y-3">
@@ -265,13 +265,13 @@ export default function GuestPhotoAdmin({ adminPin }: GuestPhotoAdminProps) {
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -8 }}
-                className="bg-white rounded-xl border border-sage-100 overflow-hidden shadow-sm"
+                className="bg-white rounded-xl border border-crimson-100 overflow-hidden shadow-sm"
               >
                 <div className="flex gap-3 p-3">
                   {/* Thumbnail */}
                   <button
                     onClick={() => setPreviewUrl(photo.signed_url)}
-                    className="relative w-20 h-20 rounded-lg overflow-hidden bg-sage-100
+                    className="relative w-20 h-20 rounded-lg overflow-hidden bg-crimson-100
                       flex-shrink-0 group cursor-pointer"
                     aria-label="Preview foto"
                   >
@@ -293,10 +293,10 @@ export default function GuestPhotoAdmin({ adminPin }: GuestPhotoAdminProps) {
 
                   {/* Info */}
                   <div className="flex-1 min-w-0">
-                    <p className="text-sage-800 text-sm font-medium truncate">
+                    <p className="text-crimson-800 text-sm font-medium truncate">
                       {photo.guest_name}
                     </p>
-                    <p className="text-sage-400 text-[11px] mt-0.5">
+                    <p className="text-crimson-400 text-[11px] mt-0.5">
                       {formatDate(photo.created_at)} • {formatTime(photo.created_at)}
                     </p>
                     <div
@@ -310,7 +310,7 @@ export default function GuestPhotoAdmin({ adminPin }: GuestPhotoAdminProps) {
                 </div>
 
                 {/* Actions */}
-                <div className="flex border-t border-sage-50">
+                <div className="flex border-t border-crimson-50">
                   {photo.status !== 'approved' && (
                     <button
                       onClick={() => handleUpdateStatus(photo.id, 'approved')}
@@ -318,7 +318,7 @@ export default function GuestPhotoAdmin({ adminPin }: GuestPhotoAdminProps) {
                       className="flex-1 flex items-center justify-center gap-1.5 py-2.5
                         text-emerald-600 text-xs font-medium
                         hover:bg-emerald-50 disabled:opacity-50
-                        transition-colors border-r border-sage-50"
+                        transition-colors border-r border-crimson-50"
                     >
                       {isProcessing ? (
                         <Loader2 size={13} className="animate-spin" />
@@ -335,7 +335,7 @@ export default function GuestPhotoAdmin({ adminPin }: GuestPhotoAdminProps) {
                       className="flex-1 flex items-center justify-center gap-1.5 py-2.5
                         text-amber-600 text-xs font-medium
                         hover:bg-amber-50 disabled:opacity-50
-                        transition-colors border-r border-sage-50"
+                        transition-colors border-r border-crimson-50"
                     >
                       {isProcessing ? (
                         <Loader2 size={13} className="animate-spin" />
@@ -408,7 +408,7 @@ export default function GuestPhotoAdmin({ adminPin }: GuestPhotoAdminProps) {
             className={`fixed bottom-6 left-1/2 -translate-x-1/2 z-[150]
               px-5 py-3 rounded-full shadow-xl text-sm font-medium
               flex items-center gap-2 max-w-[90%]
-              ${toastType === 'error' ? 'bg-red-600 text-white' : 'bg-sage-700 text-white'}`}
+              ${toastType === 'error' ? 'bg-red-600 text-white' : 'bg-crimson-700 text-white'}`}
           >
             {toastMessage}
           </motion.div>

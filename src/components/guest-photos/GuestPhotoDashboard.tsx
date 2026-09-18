@@ -55,31 +55,31 @@ export default function GuestPhotoDashboard({
     <div className="space-y-6">
       {/* Greeting & Counter */}
       <div className="text-center">
-        <p className="text-sage-800 font-serif text-lg mb-1">
+        <p className="text-crimson-800 font-serif text-lg mb-1">
           Halo, {guestName}!
         </p>
-        <p className="text-sage-500 text-xs mb-4">Foto Kamu</p>
+        <p className="text-crimson-500 text-xs mb-4">Foto Kamu</p>
 
         {/* Progress bar */}
         <div className="max-w-[200px] mx-auto mb-2">
-          <div className="h-2 bg-sage-100 rounded-full overflow-hidden">
+          <div className="h-2 bg-crimson-100 rounded-full overflow-hidden">
             <div
-              className="h-full bg-sage-500 rounded-full transition-all duration-500"
+              className="h-full bg-crimson-500 rounded-full transition-all duration-500"
               style={{ width: `${progressPercent}%` }}
             />
           </div>
         </div>
 
-        <p className="text-sage-700 text-sm font-medium">
+        <p className="text-crimson-700 text-sm font-medium">
           {photoCount} / {GUEST_PHOTO_LIMIT} Foto
         </p>
 
         {canUpload ? (
-          <p className="text-sage-400 text-xs mt-1">
+          <p className="text-crimson-400 text-xs mt-1">
             Kamu masih bisa mengirim {remaining} foto.
           </p>
         ) : (
-          <p className="text-sage-400 text-xs mt-1">
+          <p className="text-crimson-400 text-xs mt-1">
             Kamu sudah mencapai batas maksimal foto. 🎉
           </p>
         )}
@@ -99,7 +99,7 @@ export default function GuestPhotoDashboard({
 
       {/* Divider */}
       {photos.length > 0 && (
-        <div className="border-t border-sage-100" />
+        <div className="border-t border-crimson-100" />
       )}
 
       {/* Photo grid */}

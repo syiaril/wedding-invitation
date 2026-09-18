@@ -44,12 +44,12 @@ export default function GuestPhotoWelcome({
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
-        className="w-16 h-16 rounded-2xl bg-sage-100 flex items-center justify-center mx-auto mb-6"
+        className="w-16 h-16 rounded-2xl bg-crimson-100 flex items-center justify-center mx-auto mb-6"
       >
-        <Camera size={28} className="text-sage-600" />
+        <Camera size={28} className="text-crimson-600" />
       </motion.div>
 
-      <p className="text-sage-600 text-sm leading-relaxed mb-8 max-w-xs mx-auto">
+      <p className="text-crimson-600 text-sm leading-relaxed mb-8 max-w-xs mx-auto">
         Abadikan momen terbaik dari hari bahagia kami dan bagikan kenanganmu
         bersama kami.
       </p>
@@ -58,7 +58,7 @@ export default function GuestPhotoWelcome({
         <div>
           <label
             htmlFor="guest-photo-name"
-            className="block text-sage-700 text-xs font-medium tracking-wide mb-2"
+            className="block text-crimson-700 text-xs font-medium tracking-wide mb-2"
           >
             Siapa yang mengabadikan momen ini?
           </label>
@@ -73,9 +73,9 @@ export default function GuestPhotoWelcome({
             }}
             maxLength={MAX_GUEST_NAME_LENGTH}
             autoComplete="name"
-            className="w-full px-4 py-3 rounded-xl bg-sage-50 border border-sage-200
-              text-sage-800 text-sm placeholder:text-sage-400
-              focus:outline-none focus:ring-2 focus:ring-sage-400/50 focus:border-sage-400
+            className="w-full px-4 py-3 rounded-xl bg-crimson-50 border border-crimson-200
+              text-crimson-800 text-sm placeholder:text-crimson-400
+              focus:outline-none focus:ring-2 focus:ring-crimson-400/50 focus:border-crimson-400
               transition-all duration-200"
           />
         </div>
@@ -94,8 +94,8 @@ export default function GuestPhotoWelcome({
           type="submit"
           disabled={isSubmitting || !name.trim()}
           className="w-full flex items-center justify-center gap-2 px-6 py-3 rounded-xl
-            bg-sage-600 text-white text-sm font-medium tracking-wider
-            hover:bg-sage-700 active:scale-[0.98]
+            bg-crimson-600 text-white text-sm font-medium tracking-wider
+            hover:bg-crimson-700 active:scale-[0.98]
             disabled:opacity-50 disabled:cursor-not-allowed
             transition-all duration-300"
         >

@@ -110,7 +110,7 @@ export default function QrScanner({ onScanSuccess, isPaused }: QrScannerProps) {
       {/* Scanner container */}
       <div
         ref={scannerRef}
-        className="w-full h-full rounded-3xl overflow-hidden bg-sage-900/5
+        className="w-full h-full rounded-3xl overflow-hidden bg-crimson-900/5
           [&_video]:w-full [&_video]:h-full [&_video]:object-cover [&_video]:rounded-3xl
           [&_#qr-scanner-region]:w-full [&_#qr-scanner-region]:h-full
           [&_#qr-shaded-region]:border-none
@@ -136,24 +136,24 @@ export default function QrScanner({ onScanSuccess, isPaused }: QrScannerProps) {
 
         {/* Scanning line animation */}
         {!isPaused && !cameraError && !isStarting && (
-          <div className="scanner-line absolute left-[10%] right-[10%] h-[2px] bg-gradient-to-r from-transparent via-sage-400/60 to-transparent rounded-full" />
+          <div className="scanner-line absolute left-[10%] right-[10%] h-[2px] bg-gradient-to-r from-transparent via-crimson-400/60 to-transparent rounded-full" />
         )}
       </div>
 
       {/* Loading state */}
       {isStarting && !cameraError && (
-        <div className="absolute inset-0 flex flex-col items-center justify-center bg-sage-50/80 rounded-3xl backdrop-blur-sm">
-          <div className="w-8 h-8 border-2 border-sage-300 border-t-sage-600 rounded-full animate-spin mb-3" />
-          <p className="text-sage-500 text-sm">Memulai kamera...</p>
+        <div className="absolute inset-0 flex flex-col items-center justify-center bg-crimson-50/80 rounded-3xl backdrop-blur-sm">
+          <div className="w-8 h-8 border-2 border-crimson-300 border-t-crimson-600 rounded-full animate-spin mb-3" />
+          <p className="text-crimson-500 text-sm">Memulai kamera...</p>
         </div>
       )}
 
       {/* Error state */}
       {cameraError && (
-        <div className="absolute inset-0 flex flex-col items-center justify-center bg-sage-50/90 rounded-3xl backdrop-blur-sm px-6">
-          <CameraOff size={32} className="text-sage-400 mb-3" />
-          <p className="text-sage-600 text-sm font-medium text-center mb-1">Kamera tidak tersedia</p>
-          <p className="text-sage-400 text-xs text-center leading-relaxed">
+        <div className="absolute inset-0 flex flex-col items-center justify-center bg-crimson-50/90 rounded-3xl backdrop-blur-sm px-6">
+          <CameraOff size={32} className="text-crimson-400 mb-3" />
+          <p className="text-crimson-600 text-sm font-medium text-center mb-1">Kamera tidak tersedia</p>
+          <p className="text-crimson-400 text-xs text-center leading-relaxed">
             Pastikan izin kamera telah diaktifkan di pengaturan browser Anda.
           </p>
         </div>
@@ -161,7 +161,7 @@ export default function QrScanner({ onScanSuccess, isPaused }: QrScannerProps) {
 
       {/* Paused overlay */}
       {isPaused && !cameraError && !isStarting && (
-        <div className="absolute inset-0 flex items-center justify-center bg-sage-900/20 rounded-3xl backdrop-blur-[2px]">
+        <div className="absolute inset-0 flex items-center justify-center bg-crimson-900/20 rounded-3xl backdrop-blur-[2px]">
           <Camera size={28} className="text-white/70" />
         </div>
       )}

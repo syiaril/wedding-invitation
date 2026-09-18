@@ -36,14 +36,14 @@ const stories = [
 
 export default function LoveStorySection() {
   return (
-    <section id="love-story" className="relative py-20 px-6 bg-sage-50 overflow-hidden">
+    <section id="love-story" className="relative py-20 px-6 bg-crimson-50 overflow-hidden">
       <div className="max-w-lg mx-auto">
         <AnimatedSection>
           <div className="text-center mb-12">
             <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-2">
               Our Journey
             </p>
-            <h2 className="text-3xl md:text-4xl font-serif text-sage-800 mb-4">
+            <h2 className="text-3xl md:text-4xl font-serif text-crimson-800 mb-4">
               Love Story
             </h2>
             <div className="ornament-divider">
@@ -57,7 +57,7 @@ export default function LoveStorySection() {
         {/* Timeline */}
         <div className="relative">
           {/* Vertical line */}
-          <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-sage-200 md:-translate-x-px" />
+          <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-crimson-200 md:-translate-x-px" />
 
           <div className="space-y-10">
             {stories.map((story, index) => (
@@ -69,7 +69,7 @@ export default function LoveStorySection() {
                 <div className="relative flex items-start gap-6 md:gap-0">
                   {/* Dot on timeline */}
                   <div className="relative z-10 flex-shrink-0 w-12 h-12 rounded-full
-                    bg-white border-2 border-sage-300 flex items-center justify-center
+                    bg-white border-2 border-crimson-300 flex items-center justify-center
                     text-lg shadow-md md:absolute md:left-1/2 md:-translate-x-1/2">
                     {story.icon}
                   </div>
@@ -82,10 +82,10 @@ export default function LoveStorySection() {
                     <span className="text-gold-500 text-xs font-medium tracking-wider uppercase">
                       {story.date}
                     </span>
-                    <h3 className="text-lg font-serif text-sage-800 mt-1 mb-2">
+                    <h3 className="text-lg font-serif text-crimson-800 mt-1 mb-2">
                       {story.title}
                     </h3>
-                    <p className="text-sage-600 text-sm leading-relaxed">
+                    <p className="text-crimson-600 text-sm leading-relaxed">
                       {story.description}
                     </p>
                   </div>

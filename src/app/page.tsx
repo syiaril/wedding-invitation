@@ -71,9 +71,9 @@ export default function Page() {
       fallback={
         <div className="min-h-screen flex items-center justify-center bg-earth-50">
           <div className="text-center">
-            <div className="w-10 h-10 border-2 border-sage-300 border-t-sage-600
+            <div className="w-10 h-10 border-2 border-crimson-300 border-t-crimson-600
               rounded-full animate-spin mx-auto mb-4" />
-            <p className="text-sage-500 text-sm font-serif">Memuat undangan...</p>
+            <p className="text-crimson-500 text-sm font-serif">Memuat undangan...</p>
           </div>
         </div>
       }

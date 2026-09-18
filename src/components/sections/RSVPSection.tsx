@@ -279,14 +279,14 @@ export default function RSVPSection() {
   };
 
   return (
-    <section id="rsvp" className="relative py-20 px-6 bg-sage-50 overflow-hidden">
+    <section id="rsvp" className="relative py-20 px-6 bg-crimson-50 overflow-hidden">
       <div className="max-w-lg mx-auto">
         <AnimatedSection>
           <div className="text-center mb-12">
             <p className="text-gold-500 text-sm tracking-[0.3em] uppercase mb-2">
               RSVP & Wishes
             </p>
-            <h2 className="text-3xl md:text-4xl font-serif text-sage-800 mb-4">
+            <h2 className="text-3xl md:text-4xl font-serif text-crimson-800 mb-4">
               Ucapan & Doa
             </h2>
             <div className="ornament-divider">
@@ -318,17 +318,17 @@ export default function RSVPSection() {
                     shadow-sm ${
                       userReaction === emoji 
                         ? 'bg-gold-100/80 border-gold-300 shadow-md ring-2 ring-gold-200/50' 
-                        : 'bg-white/60 border-sage-200/50 hover:bg-white/80'
+                        : 'bg-white/60 border-crimson-200/50 hover:bg-white/80'
                     } ${hasReacted && userReaction !== emoji ? 'opacity-50 grayscale' : ''}`}
                 >
                   <span className="text-2xl mb-1">{emoji}</span>
                   <span className={`text-[11px] font-bold ${
-                    userReaction === emoji ? 'text-gold-700' : 'text-sage-600'
+                    userReaction === emoji ? 'text-gold-700' : 'text-crimson-600'
                   }`}>
                     {displayCount}
                   </span>
                   <span className={`text-[9px] font-medium tracking-wide ${
-                    userReaction === emoji ? 'text-gold-600' : 'text-sage-400'
+                    userReaction === emoji ? 'text-gold-600' : 'text-crimson-400'
                   }`}>
                     {label}
                   </span>
@@ -342,8 +342,8 @@ export default function RSVPSection() {
         <AnimatedSection delay={0.2}>
           <div className="glass-card p-6 mb-6">
             <div className="flex items-center gap-2 mb-4">
-              <Users size={18} className="text-sage-600" />
-              <h3 className="text-lg font-serif text-sage-800">Konfirmasi Kehadiran</h3>
+              <Users size={18} className="text-crimson-600" />
+              <h3 className="text-lg font-serif text-crimson-800">Konfirmasi Kehadiran</h3>
             </div>
             <form onSubmit={handleRsvpSubmit} className="space-y-3">
               <input
@@ -353,17 +353,17 @@ export default function RSVPSection() {
                 onChange={(e) => setRsvpName(e.target.value)}
                 required
                 maxLength={50}
-                className="w-full px-4 py-3 rounded-xl bg-sage-50 border border-sage-200
-                  text-sage-800 text-sm placeholder:text-sage-400
-                  focus:outline-none focus:ring-2 focus:ring-sage-400/50 focus:border-sage-400
+                className="w-full px-4 py-3 rounded-xl bg-crimson-50 border border-crimson-200
+                  text-crimson-800 text-sm placeholder:text-crimson-400
+                  focus:outline-none focus:ring-2 focus:ring-crimson-400/50 focus:border-crimson-400
                   transition-all duration-200"
               />
               <select
                 value={attendance}
                 onChange={(e) => setAttendance(e.target.value)}
-                className="w-full px-4 py-3 rounded-xl bg-sage-50 border border-sage-200
-                  text-sage-800 text-sm
-                  focus:outline-none focus:ring-2 focus:ring-sage-400/50 focus:border-sage-400
+                className="w-full px-4 py-3 rounded-xl bg-crimson-50 border border-crimson-200
+                  text-crimson-800 text-sm
+                  focus:outline-none focus:ring-2 focus:ring-crimson-400/50 focus:border-crimson-400
                   transition-all duration-200"
               >
                 <option value="hadir">✅ Hadir</option>
@@ -371,16 +371,16 @@ export default function RSVPSection() {
               </select>
               {attendance === 'hadir' && (
                 <div>
-                  <label className="text-sage-600 text-xs mb-1 block">Jumlah Tamu</label>
+                  <label className="text-crimson-600 text-xs mb-1 block">Jumlah Tamu</label>
                   <input
                     type="number"
                     min={1}
                     max={10}
                     value={guests}
                     onChange={(e) => setGuests(Number(e.target.value))}
-                    className="w-full px-4 py-3 rounded-xl bg-sage-50 border border-sage-200
-                      text-sage-800 text-sm
-                      focus:outline-none focus:ring-2 focus:ring-sage-400/50 focus:border-sage-400
+                    className="w-full px-4 py-3 rounded-xl bg-crimson-50 border border-crimson-200
+                      text-crimson-800 text-sm
+                      focus:outline-none focus:ring-2 focus:ring-crimson-400/50 focus:border-crimson-400
                       transition-all duration-200"
                   />
                 </div>
@@ -389,8 +389,8 @@ export default function RSVPSection() {
                 type="submit"
                 disabled={rsvpSubmitting}
                 className="w-full flex items-center justify-center gap-2 px-6 py-3 rounded-xl
-                  bg-sage-600 text-white text-sm font-medium tracking-wider
-                  hover:bg-sage-700 disabled:opacity-50 disabled:cursor-not-allowed
+                  bg-crimson-600 text-white text-sm font-medium tracking-wider
+                  hover:bg-crimson-700 disabled:opacity-50 disabled:cursor-not-allowed
                   transition-colors duration-300"
               >
                 <Send size={16} />
@@ -404,8 +404,8 @@ export default function RSVPSection() {
         <AnimatedSection delay={0.3}>
           <div className="glass-card p-6 mb-6">
             <div className="flex items-center gap-2 mb-4">
-              <MessageCircle size={18} className="text-sage-600" />
-              <h3 className="text-lg font-serif text-sage-800">Kirim Ucapan</h3>
+              <MessageCircle size={18} className="text-crimson-600" />
+              <h3 className="text-lg font-serif text-crimson-800">Kirim Ucapan</h3>
             </div>
             <form onSubmit={handleWishSubmit} className="space-y-3">
               <input
@@ -418,8 +418,8 @@ export default function RSVPSection() {
                 readOnly={hasSession}
                 className={`w-full px-4 py-3 rounded-xl border text-sm transition-all duration-200
                   ${hasSession 
-                    ? 'bg-sage-100/50 border-sage-200 text-sage-600 cursor-not-allowed' 
-                    : 'bg-sage-50 border-sage-200 text-sage-800 placeholder:text-sage-400 focus:outline-none focus:ring-2 focus:ring-sage-400/50 focus:border-sage-400'
+                    ? 'bg-crimson-100/50 border-crimson-200 text-crimson-600 cursor-not-allowed' 
+                    : 'bg-crimson-50 border-crimson-200 text-crimson-800 placeholder:text-crimson-400 focus:outline-none focus:ring-2 focus:ring-crimson-400/50 focus:border-crimson-400'
                   }`}
               />
               <div className="relative">
@@ -430,13 +430,13 @@ export default function RSVPSection() {
                   rows={4}
                   required
                   maxLength={200}
-                  className="w-full px-4 py-3 rounded-xl bg-sage-50 border border-sage-200
-                    text-sage-800 text-sm placeholder:text-sage-400 resize-none
-                    focus:outline-none focus:ring-2 focus:ring-sage-400/50 focus:border-sage-400
+                  className="w-full px-4 py-3 rounded-xl bg-crimson-50 border border-crimson-200
+                    text-crimson-800 text-sm placeholder:text-crimson-400 resize-none
+                    focus:outline-none focus:ring-2 focus:ring-crimson-400/50 focus:border-crimson-400
                     transition-all duration-200"
                 />
                 <span className={`absolute bottom-2 right-3 text-[10px] ${
-                  wishMessage.length >= 180 ? 'text-red-400' : 'text-sage-400'
+                  wishMessage.length >= 180 ? 'text-red-400' : 'text-crimson-400'
                 }`}>
                   {wishMessage.length}/200
                 </span>
@@ -445,8 +445,8 @@ export default function RSVPSection() {
                 type="submit"
                 disabled={wishSubmitting}
                 className="w-full flex items-center justify-center gap-2 px-6 py-3 rounded-xl
-                  bg-sage-600 text-white text-sm font-medium tracking-wider
-                  hover:bg-sage-700 disabled:opacity-50 disabled:cursor-not-allowed
+                  bg-crimson-600 text-white text-sm font-medium tracking-wider
+                  hover:bg-crimson-700 disabled:opacity-50 disabled:cursor-not-allowed
                   transition-colors duration-300"
               >
                 <Send size={16} />
@@ -459,13 +459,13 @@ export default function RSVPSection() {
         {/* Wishes Feed */}
         <AnimatedSection delay={0.4}>
           <div className="glass-card p-6">
-            <h3 className="text-lg font-serif text-sage-800 mb-4">
+            <h3 className="text-lg font-serif text-crimson-800 mb-4">
               Ucapan ({wishes.length})
             </h3>
             <div className="max-h-80 overflow-y-auto space-y-4 pr-2
-              scrollbar-thin scrollbar-track-sage-50 scrollbar-thumb-sage-200">
+              scrollbar-thin scrollbar-track-crimson-50 scrollbar-thumb-crimson-200">
               {wishes.length === 0 ? (
-                <p className="text-sage-400 text-sm text-center py-8">
+                <p className="text-crimson-400 text-sm text-center py-8">
                   Belum ada ucapan. Jadilah yang pertama! 💌
                 </p>
               ) : (
@@ -474,15 +474,15 @@ export default function RSVPSection() {
                     key={wish.id}
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="p-4 rounded-xl bg-sage-50/60 border border-sage-100"
+                    className="p-4 rounded-xl bg-crimson-50/60 border border-crimson-100"
                   >
                     <div className="flex items-center justify-between mb-1.5">
-                      <p className="text-sage-800 text-sm font-medium">{wish.name}</p>
-                      <p className="text-sage-400 text-[10px]">
+                      <p className="text-crimson-800 text-sm font-medium">{wish.name}</p>
+                      <p className="text-crimson-400 text-[10px]">
                         {formatDate(wish.created_at)}
                       </p>
                     </div>
-                    <p className="text-sage-600 text-sm leading-relaxed">
+                    <p className="text-crimson-600 text-sm leading-relaxed">
                       {wish.message}
                     </p>
                   </motion.div>

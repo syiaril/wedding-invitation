@@ -10,13 +10,13 @@ interface CheckInSuccessModalProps {
 
 const categoryStyles: Record<string, string> = {
   vip: 'bg-gold-300/20 text-gold-600 border-gold-300/40',
-  keluarga: 'bg-dusty-100 text-dusty-500 border-dusty-200',
-  teman: 'bg-sage-100 text-sage-600 border-sage-200',
+  keluarga: 'bg-crimson-100 text-crimson-500 border-crimson-200',
+  teman: 'bg-crimson-100 text-crimson-600 border-crimson-200',
 };
 
 function getCategoryStyle(category: string): string {
   const key = category.toLowerCase();
-  return categoryStyles[key] || 'bg-sage-100 text-sage-600 border-sage-200';
+  return categoryStyles[key] || 'bg-crimson-100 text-crimson-600 border-crimson-200';
 }
 
 export default function CheckInSuccessModal({
@@ -35,7 +35,7 @@ export default function CheckInSuccessModal({
           className="fixed inset-0 z-[200] flex items-center justify-center px-6"
         >
           {/* Backdrop */}
-          <div className="absolute inset-0 bg-sage-900/30 backdrop-blur-sm" />
+          <div className="absolute inset-0 bg-crimson-900/30 backdrop-blur-sm" />
 
           {/* Modal Card */}
           <motion.div
@@ -89,7 +89,7 @@ export default function CheckInSuccessModal({
                 <p className="text-emerald-600 text-sm font-medium tracking-wide mb-3">
                   Berhasil Check-in!
                 </p>
-                <h3 className="font-serif text-sage-900 text-xl font-semibold mb-2">
+                <h3 className="font-serif text-crimson-900 text-xl font-semibold mb-2">
                   {guestName}
                 </h3>
                 <span
