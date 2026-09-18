@@ -13,7 +13,6 @@ import {
   Camera,
 } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
-import QrScanner from '@/components/ui/QrScanner';
 import CheckInSuccessModal from '@/components/ui/CheckInSuccessModal';
 import GuestPhotoAdmin from '@/components/admin/GuestPhotoAdmin';
 
@@ -186,7 +185,6 @@ export default function ReceptionistPage() {
   const [isUnlocked, setIsUnlocked] = useState(false);
   const [adminPin, setAdminPin] = useState('');
   const [activeTab, setActiveTab] = useState<'checkin' | 'photos'>('checkin');
-  const [scannerPaused, setScannerPaused] = useState(false);
 
   // Check-in success modal
   const [showSuccess, setShowSuccess] = useState(false);
@@ -334,33 +332,6 @@ export default function ReceptionistPage() {
     [showToastMsg, fetchStats, fetchRecentCheckins]
   );
 
-  // ─── QR Scan Handler ──────────────────────────────────────
-  const handleScanSuccess = useCallback(
-    async (decodedText: string) => {
-      if (scannerPaused) return;
-
-      // Pause scanner
-      setScannerPaused(true);
-
-      // Validate 6-character alphanumeric kode_tiket format
-      const kodeRegex = /^[A-Z0-9]{6}$/;
-      const kode = decodedText.trim().toUpperCase();
-      if (!kodeRegex.test(kode)) {
-        showToastMsg('❌ QR Code tidak valid.', 'error');
-        setTimeout(() => setScannerPaused(false), 1500);
-        return;
-      }
-
-      await performCheckIn(kode);
-
-      // Resume scanner after 2.5 seconds
-      setTimeout(() => {
-        setShowSuccess(false);
-        setScannerPaused(false);
-      }, 2500);
-    },
-    [scannerPaused, performCheckIn, showToastMsg]
-  );
 
   // ─── Manual Search ─────────────────────────────────────────
   const handleSearch = useCallback(async () => {
@@ -459,19 +430,6 @@ export default function ReceptionistPage() {
 
       {activeTab === 'checkin' ? (
       <div className="max-w-lg mx-auto px-4 py-6 space-y-6">
-        {/* Scanner Section */}
-        <motion.section
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <div className="text-center mb-4">
-            <p className="text-crimson-500 text-xs tracking-wide uppercase font-medium">
-              Scan QR Code Tamu
-            </p>
-          </div>
-          <QrScanner onScanSuccess={handleScanSuccess} isPaused={scannerPaused} />
-        </motion.section>
 
         {/* Manual Search */}
         <motion.section
