@@ -8,13 +8,7 @@ import { COVER_BG } from '@/lib/assets';
 
 export default function ClosingSection() {
   const scrollToTop = () => {
-    import('framer-motion').then(({ animate }) => {
-      animate(window.scrollY, 0, {
-        duration: 1.2,
-        ease: [0.32, 0.72, 0, 1],
-        onUpdate: (value) => window.scrollTo(0, value),
-      });
-    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -50,8 +44,7 @@ export default function ClosingSection() {
 
         <AnimatedSection delay={0.3}>
           <h2
-            className="text-5xl md:text-6xl text-white mb-2"
-            style={{ fontFamily: 'Great Vibes, cursive' }}
+            className="text-5xl md:text-6xl text-white mb-2 font-script"
           >
             Asmunandar
           </h2>
@@ -59,8 +52,7 @@ export default function ClosingSection() {
             <Heart size={20} className="text-crimson-300" fill="currentColor" />
           </div>
           <h2
-            className="text-5xl md:text-6xl text-white mb-8"
-            style={{ fontFamily: 'Great Vibes, cursive' }}
+            className="text-5xl md:text-6xl text-white mb-8 font-script"
           >
             Salasatin
           </h2>

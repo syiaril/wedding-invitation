@@ -77,8 +77,7 @@ export default function OpeningSection() {
             <div className="text-center">
               <div className="text-gold-400 text-2xl mb-2">♂</div>
               <h3
-                className="text-3xl text-crimson-800 mb-2"
-                style={{ fontFamily: 'Great Vibes, cursive' }}
+                className="text-3xl text-crimson-800 mb-2 font-script"
               >
                 M. Asmunandar, S.Ak
               </h3>
@@ -96,8 +95,7 @@ export default function OpeningSection() {
             <div className="text-center">
               <div className="text-gold-400 text-2xl mb-2">♀</div>
               <h3
-                className="text-3xl text-crimson-800 mb-2"
-                style={{ fontFamily: 'Great Vibes, cursive' }}
+                className="text-3xl text-crimson-800 mb-2 font-script"
               >
                 Salasatin Ismiah, S.Si
               </h3>

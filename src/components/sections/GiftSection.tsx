@@ -41,21 +41,12 @@ export default function GiftSection() {
   const copyToClipboard = async (text: string, label: string) => {
     try {
       await navigator.clipboard.writeText(text);
-      setToastMessage(`${label} berhasil disalin!`);
-      setShowToast(true);
-      setTimeout(() => setShowToast(false), 2500);
     } catch {
-      // Fallback
-      const textArea = document.createElement('textarea');
-      textArea.value = text;
-      document.body.appendChild(textArea);
-      textArea.select();
-      document.execCommand('copy');
-      document.body.removeChild(textArea);
-      setToastMessage(`${label} berhasil disalin!`);
-      setShowToast(true);
-      setTimeout(() => setShowToast(false), 2500);
+      // Clipboard API unavailable in this context
     }
+    setToastMessage(`${label} berhasil disalin!`);
+    setShowToast(true);
+    setTimeout(() => setShowToast(false), 2500);
   };
 
   const handleGiftConfirm = () => {

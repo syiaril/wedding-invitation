@@ -1,27 +1,14 @@
 import { createClient } from '@supabase/supabase-js';
-import https from 'https';
 
 const supabaseUrl = 'https://phzbfeoxgwqfmulacpzn.supabase.co';
 const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey);
 const BUCKET = 'wedding-assets';
 
-function downloadImage(url) {
-  return new Promise((resolve, reject) => {
-    const follow = (url) => {
-      https.get(url, (res) => {
-        if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
-          follow(res.headers.location);
-          return;
-        }
-        const chunks = [];
-        res.on('data', (chunk) => chunks.push(chunk));
-        res.on('end', () => resolve(Buffer.concat(chunks)));
-        res.on('error', reject);
-      }).on('error', reject);
-    };
-    follow(url);
-  });
+async function downloadImage(url) {
+  const res = await fetch(url, { redirect: 'follow' });
+  if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
+  return Buffer.from(await res.arrayBuffer());
 }
 
 async function uploadImage(url, storagePath) {

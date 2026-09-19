@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Great_Vibes, Lato } from "next/font/google";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
 const playfairDisplay = Playfair_Display({
@@ -48,7 +49,10 @@ export default function RootLayout({
       lang="id"
       className={`h-full antialiased ${playfairDisplay.variable} ${greatVibes.variable} ${lato.variable}`}
     >
-      <body className="min-h-full font-sans">{children}</body>
+      <body className="min-h-full font-sans">
+        {children}
+        <SpeedInsights />
+      </body>
     </html>
   );
 }

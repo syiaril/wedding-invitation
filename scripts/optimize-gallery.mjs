@@ -9,7 +9,6 @@
 
 import { createClient } from '@supabase/supabase-js';
 import sharp from 'sharp';
-import https from 'https';
 import fs from 'fs';
 import path from 'path';
 
@@ -43,24 +42,14 @@ const galleryFileNames = [
 const TEMP_DIR = './scripts/temp-gallery';
 
 function downloadImage(url) {
-  return new Promise((resolve, reject) => {
-    const follow = (url) => {
-      https.get(url, (res) => {
-        if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
-          follow(res.headers.location);
-          return;
-        }
-        if (res.statusCode !== 200) {
-          reject(new Error(`HTTP ${res.statusCode} for ${url}`));
-          return;
-        }
-        const chunks = [];
-        res.on('data', (chunk) => chunks.push(chunk));
-        res.on('end', () => resolve(Buffer.concat(chunks)));
-        res.on('error', reject);
-      }).on('error', reject);
-    };
-    follow(url);
+  return new Promise(async (resolve, reject) => {
+    try {
+      const res = await fetch(url, { redirect: 'follow' });
+      if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
+      resolve(Buffer.from(await res.arrayBuffer()));
+    } catch (err) {
+      reject(err);
+    }
   });
 }
 

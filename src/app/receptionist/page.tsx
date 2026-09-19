@@ -237,38 +237,14 @@ export default function ReceptionistPage() {
   }, []);
 
   useEffect(() => {
-    let isMounted = true;
     if (isUnlocked) {
       const loadInitialData = async () => {
-        const { count: total } = await supabase
-          .from('guest_list')
-          .select('*', { count: 'exact', head: true });
-
-        const { count: checkedIn } = await supabase
-          .from('guest_list')
-          .select('*', { count: 'exact', head: true })
-          .eq('status_kehadiran', true);
-
-        const { data: recent } = await supabase
-          .from('guest_list')
-          .select('*')
-          .eq('status_kehadiran', true)
-          .order('waktu_check_in', { ascending: false })
-          .limit(5);
-
-        if (isMounted) {
-          setTotalGuests(total || 0);
-          setCheckedInCount(checkedIn || 0);
-          if (recent) setRecentCheckins(recent);
-        }
+        await fetchStats();
+        await fetchRecentCheckins();
       };
-
       loadInitialData();
     }
-    return () => {
-      isMounted = false;
-    };
-  }, [isUnlocked]);
+  }, [isUnlocked, fetchStats, fetchRecentCheckins]);
 
   // ─── Show Toast ────────────────────────────────────────────
   const showToastMsg = useCallback(

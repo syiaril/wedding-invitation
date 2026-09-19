@@ -128,9 +128,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-serif);
 }
 
-[style*="Great Vibes"] {
-  font-family: var(--font-great-vibes), 'Great Vibes', cursive !important;
-}
+
 
 /* ===== Decorative Ornament ===== */
 .ornament-divider {
@@ -196,14 +194,7 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
 }
 
-/* ===== Swiper Custom Styles ===== */
-.swiper-pagination-bullet {
-  background: var(--color-crimson-400) !important;
-}
 
-.swiper-pagination-bullet-active {
-  background: var(--color-crimson-700) !important;
-}
 
 /* ===== Ticket Divider ===== */
 .ticket-divider {
