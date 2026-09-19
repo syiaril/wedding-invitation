@@ -296,12 +296,7 @@ export default function RSVPSection() {
 
   // Handle reaction
   const handleReaction = async (emoji: string) => {
-    const token = localStorage.getItem(SESSION_STORAGE_KEY);
-    
-    if (!hasSession || !token) {
-      showToastMsg('Silakan isi Nama di form Ucapan terlebih dahulu untuk bereaksi');
-      return;
-    }
+    const token = localStorage.getItem(SESSION_STORAGE_KEY) || '';
 
     const oldEmoji = userReaction;
     const newEmoji = emoji;

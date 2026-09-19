@@ -52,6 +52,7 @@ export default function ClosingSection() {
           <div className="flex items-center justify-center gap-4 my-2">
             <div className="w-12 h-[1px] bg-crimson-300"></div>
             <Heart size={20} className="text-crimson-300" fill="currentColor" />
+            <div className="w-12 h-[1px] bg-crimson-300"></div>
           </div>
           <h2
             className="text-5xl md:text-6xl text-white mb-8"

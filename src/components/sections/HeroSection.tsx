@@ -68,6 +68,7 @@ export default function HeroSection() {
           <div className="flex items-center justify-center gap-4 my-2">
             <div className="w-16 h-[1px] bg-gold-400"></div>
             <span className="text-gold-400 text-2xl">&amp;</span>
+            <div className="w-16 h-[1px] bg-gold-400"></div>
           </div>
           <h2
             className="text-6xl md:text-8xl text-white mb-6"
