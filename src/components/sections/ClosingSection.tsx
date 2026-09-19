@@ -44,15 +44,18 @@ export default function ClosingSection() {
 
         <AnimatedSection delay={0.3}>
           <h2
-            className="text-5xl md:text-6xl text-white mb-2 font-script"
+            className="text-5xl md:text-6xl text-white mb-2"
+            style={{ fontFamily: 'Great Vibes, cursive' }}
           >
             Asmunandar
           </h2>
-          <div className="flex justify-center my-2">
+          <div className="flex items-center justify-center gap-4 my-2">
+            <div className="w-12 h-[1px] bg-crimson-300"></div>
             <Heart size={20} className="text-crimson-300" fill="currentColor" />
           </div>
           <h2
-            className="text-5xl md:text-6xl text-white mb-8 font-script"
+            className="text-5xl md:text-6xl text-white mb-8"
+            style={{ fontFamily: 'Great Vibes, cursive' }}
           >
             Salasatin
           </h2>

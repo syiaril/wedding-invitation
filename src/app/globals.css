@@ -130,6 +130,10 @@ h1, h2, h3, h4, h5, h6 {
 
 
 
+[style*="Great Vibes"] {
+  font-family: var(--font-great-vibes), 'Great Vibes', cursive !important;
+}
+
 /* ===== Decorative Ornament ===== */
 .ornament-divider {
   display: flex;

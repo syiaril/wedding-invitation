@@ -60,15 +60,18 @@ export default function HeroSection() {
 
         <AnimatedSection delay={0.6}>
           <h2
-            className="text-6xl md:text-8xl text-white mb-2 font-script"
+            className="text-6xl md:text-8xl text-white mb-2"
+            style={{ fontFamily: 'Great Vibes, cursive' }}
           >
             Asmunandar
           </h2>
-          <div className="ornament-divider">
+          <div className="flex items-center justify-center gap-4 my-2">
+            <div className="w-16 h-[1px] bg-gold-400"></div>
             <span className="text-gold-400 text-2xl">&amp;</span>
           </div>
           <h2
-            className="text-6xl md:text-8xl text-white mb-6 font-script"
+            className="text-6xl md:text-8xl text-white mb-6"
+            style={{ fontFamily: 'Great Vibes, cursive' }}
           >
             Salasatin
           </h2>

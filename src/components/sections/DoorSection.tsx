@@ -65,15 +65,16 @@ export default function DoorSection() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.7, duration: 0.8 }}
-              className="text-white text-5xl md:text-7xl mb-2 font-script"
+              className="text-white text-5xl md:text-7xl mb-2"
+              style={{ fontFamily: 'Great Vibes, cursive' }}
             >
               Asmunandar
             </motion.h1>
             <motion.div
-              initial={{ opacity: 0, scaleX: 0 }}
-              animate={{ opacity: 1, scaleX: 1 }}
-              transition={{ delay: 0.9, duration: 0.6 }}
-              className="text-gold-400 text-2xl font-serif mb-1"
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.9, duration: 0.5, type: 'spring' }}
+              className="text-gold-400 text-3xl font-light"
             >
               &amp;
             </motion.div>
@@ -81,7 +82,8 @@ export default function DoorSection() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 1.0, duration: 0.8 }}
-              className="text-white text-5xl md:text-7xl mb-8 font-script"
+              className="text-white text-5xl md:text-7xl mb-8"
+              style={{ fontFamily: 'Great Vibes, cursive' }}
             >
               Salasatin
             </motion.h1>
