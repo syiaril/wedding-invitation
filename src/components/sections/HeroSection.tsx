@@ -7,7 +7,7 @@ import { useCountdown } from '@/hooks/useCountdown';
 import AnimatedSection from '@/components/ui/AnimatedSection';
 import { HERO_BG } from '@/lib/assets';
 
-const WEDDING_DATE = new Date('2026-10-18T08:00:00+08:00');
+const WEDDING_DATE = new Date('2026-10-23T08:00:00+08:00');
 
 export default function HeroSection() {
   const { guestName } = useInvitation();
@@ -80,7 +80,7 @@ export default function HeroSection() {
 
         <AnimatedSection delay={0.8}>
           <p className="text-white/80 font-serif text-lg tracking-wider mb-12">
-            18 Oktober 2026
+            23 Oktober 2026
           </p>
         </AnimatedSection>
 

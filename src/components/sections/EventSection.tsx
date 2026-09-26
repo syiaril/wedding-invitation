@@ -24,12 +24,12 @@ const events = [
   },
   {
     title: 'Resepsi - Mempelai Putra',
-    day: 'Jumat - Sabtu',
-    date: '23 - 24 Oktober 2026',
+    day: 'Jumat',
+    date: '23 Oktober 2026',
     time: 'Bebas',
     venue: 'Kediaman Mempelai Putra',
     address: 'Dsn. Krajan, RT 01 RW 02, Ds. Tebas, Kec. Gondangwetan, Kab. Pasuruan',
-    calendarUrl: `https://calendar.google.com/calendar/render?action=TEMPLATE&text=Resepsi+Asmunandar+%26+Salasatin+(Mempelai+Putra)&dates=20261023T000000Z/20261024T120000Z&details=Resepsi+Pernikahan+Asmunandar+%26+Salasatin&location=Dsn.+Krajan+Ds.+Tebas+Kec.+Gondangwetan+Kab.+Pasuruan`,
+    calendarUrl: `https://calendar.google.com/calendar/render?action=TEMPLATE&text=Resepsi+Asmunandar+%26+Salasatin+(Mempelai+Putra)&dates=20261023T000000Z/20261023T120000Z&details=Resepsi+Pernikahan+Asmunandar+%26+Salasatin&location=Dsn.+Krajan+Ds.+Tebas+Kec.+Gondangwetan+Kab.+Pasuruan`,
   },
 ];
 
