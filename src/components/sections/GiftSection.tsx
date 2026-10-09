@@ -32,11 +32,29 @@ const bankAccounts = [
   },
 ];
 
+const recipients = [
+  {
+    id: 'groom',
+    label: 'Mempelai Putra',
+    name: 'Asmunandar',
+    phone: '6285730008802',
+  },
+  {
+    id: 'bride',
+    label: 'Mempelai Putri',
+    name: 'Salasatin',
+    phone: '6283852538623',
+  },
+] as const;
+
+type RecipientId = (typeof recipients)[number]['id'];
+
 export default function GiftSection() {
   const [toastMessage, setToastMessage] = useState('');
   const [showToast, setShowToast] = useState(false);
   const [nominal, setNominal] = useState('');
   const [senderName, setSenderName] = useState('');
+  const [selectedRecipient, setSelectedRecipient] = useState<RecipientId>('groom');
 
   const copyToClipboard = async (text: string, label: string) => {
     try {
@@ -50,8 +68,9 @@ export default function GiftSection() {
   };
 
   const handleGiftConfirm = () => {
-    const message = `Halo Asmunandar & Salasatin! 🎁\n\nSaya *${senderName || 'Tamu'}* ingin mengkonfirmasi hadiah sebesar *Rp ${nominal || '0'}*.\n\nSemoga menjadi berkah untuk kalian berdua. Aamiin 🤲`;
-    const waUrl = `https://wa.me/6285730008802?text=${encodeURIComponent(message)}`;
+    const target = recipients.find((r) => r.id === selectedRecipient) || recipients[0];
+    const message = `Halo ${target.name}! 🎁\n\nSaya *${senderName || 'Tamu'}* ingin mengkonfirmasi hadiah sebesar *Rp ${nominal || '0'}*.\n\nSemoga menjadi berkah untuk Asmunandar & Salasatin. Aamiin 🤲`;
+    const waUrl = `https://wa.me/${target.phone}?text=${encodeURIComponent(message)}`;
     window.open(waUrl, '_blank');
   };
 
@@ -141,6 +160,33 @@ export default function GiftSection() {
                   focus:outline-none focus:ring-2 focus:ring-crimson-400/50 focus:border-crimson-400
                   transition-all duration-200"
               />
+              <div>
+                <p className="text-xs text-crimson-600 mb-1.5 font-medium">
+                  Konfirmasi Kepada:
+                </p>
+                <div className="grid grid-cols-2 gap-2">
+                  {recipients.map((recipient) => {
+                    const isSelected = selectedRecipient === recipient.id;
+                    return (
+                      <button
+                        key={recipient.id}
+                        type="button"
+                        onClick={() => setSelectedRecipient(recipient.id)}
+                        className={`py-2 px-3 rounded-xl text-xs font-medium transition-all duration-200 border flex flex-col items-center justify-center gap-0.5 cursor-pointer ${
+                          isSelected
+                            ? 'bg-crimson-600 text-white border-crimson-600 shadow-sm'
+                            : 'bg-crimson-50/70 text-crimson-700 border-crimson-200 hover:bg-crimson-100/70'
+                        }`}
+                      >
+                        <span>{recipient.label}</span>
+                        <span className={`text-[11px] ${isSelected ? 'text-crimson-100' : 'text-crimson-500'}`}>
+                          ({recipient.name})
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
               <button
                 onClick={handleGiftConfirm}
                 className="w-full flex items-center justify-center gap-2 px-6 py-3 rounded-xl
